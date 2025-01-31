@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import Cuisine, Restaurant, Ratings, Comments
 
 
 # Register your models here.

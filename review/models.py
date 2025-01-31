@@ -5,12 +5,14 @@ from cloudinary.models import CloudinaryField
 
 
 STAR_RATINGS = (
-        (1, ':star:'),
-        (2, ':star::star:'),
-        (3, ':star::star::star:'),
-        (4, ':star::star::star::star:'),
-        (5, ':star::star::star::star::star:'),
+        (1, '⭐'),
+        (2, '⭐⭐'),
+        (3, '⭐⭐⭐'),
+        (4, '⭐⭐⭐⭐'),
+        (5, '⭐⭐⭐⭐⭐'),
     )
+
+    
 
 # Create your models here.
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -40,7 +42,7 @@ class Restaurant(models.Model):
         return self.name
 
 class Ratings(models.Model):
-    rating = models.IntegerField()
+    rating = models.IntegerField(choices=STAR_RATINGS, default=1)
     restro = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
