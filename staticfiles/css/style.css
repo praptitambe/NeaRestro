@@ -1,0 +1,128 @@
+.hero-image {
+    background-image: url('../images/hero.png');
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-left: 20px; /* Add left padding */
+    padding-right: 20px; /* Add right padding */
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 0 20px; /* Add padding for smaller screens */
+}
+
+.hero-text h1 {
+    font-size: 3rem; /* Adjust font size for responsiveness */
+}
+
+.hero-text p {
+    font-size: 1.5rem; /* Adjust font size for responsiveness */
+}
+
+.hero-text form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.hero-text .form-control {
+    width: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
+}
+
+.hero-text .btn {
+    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
+}
+
+/* Flipping Card Styles */
+.flip-card {
+    background-color: transparent;
+    width: 200px; /* Smaller width */
+    height: 200px; /* Smaller height */
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    border-radius: 50%; /* Make the card circular */
+    overflow: hidden; /* Ensure content stays within the circular shape */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 50%; /* Ensure inner content is circular */
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 50%; /* Ensure front and back sides are circular */
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem; /* Smaller font size for tablets */
+    }
+
+    .hero-text p {
+        font-size: 1.2rem; /* Smaller font size for tablets */
+    }
+
+    .hero-text .form-control {
+        width: 250px; /* Smaller input width for tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 2rem; /* Smaller font size for mobile devices */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Smaller font size for mobile devices */
+    }
+
+    .hero-text .form-control {
+        width: 200px; /* Smaller input width for mobile devices */
+    }
+}
