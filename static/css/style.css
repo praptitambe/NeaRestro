@@ -1,0 +1,73 @@
+.hero-image {
+    background-image: url('../images/hero.png');
+    height: 400px; /* Full viewport height */
+    width: 100%; /* Full width */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 0 20px; /* Add padding for smaller screens */
+}
+
+.hero-text h1 {
+    font-size: 3rem; /* Adjust font size for responsiveness */
+}
+
+.hero-text p {
+    font-size: 1.5rem; /* Adjust font size for responsiveness */
+}
+
+.hero-text form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.hero-text .form-control {
+    width: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
+}
+
+.hero-text .btn {
+    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem; /* Smaller font size for tablets */
+    }
+
+    .hero-text p {
+        font-size: 1.2rem; /* Smaller font size for tablets */
+    }
+
+    .hero-text .form-control {
+        width: 250px; /* Smaller input width for tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 2rem; /* Smaller font size for mobile devices */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Smaller font size for mobile devices */
+    }
+
+    .hero-text .form-control {
+        width: 200px; /* Smaller input width for mobile devices */
+    }
+}
