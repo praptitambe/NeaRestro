@@ -1,4 +1,7 @@
 {% load static %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +24,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
     </header>
     <main class="container-fluid p-0">
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
         <div class="hero-image">
             <div class="hero-text text-center text-white">
                 <h1>Welcome to NeaRestro</h1>
@@ -42,7 +65,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="{% static 'images/img_avatar.png' %}" alt="Avatar" class="img-fluid">
+                                <img src="{% static 'images/indian.jpg' %}" alt="Avatar" class="img-fluid">
                             </div>
                             <div class="flip-card-back">
                                 <h1>John Doe</h1>
@@ -56,7 +79,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="{% static 'images/img_avatar.png' %}" alt="Avatar" class="img-fluid">
+                                <img src="{% static 'images/indian.jpg' %}" alt="Avatar" class="img-fluid">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Jane Doe</h1>
@@ -70,7 +93,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="{% static 'images/img_avatar.png' %}" alt="Avatar" class="img-fluid">
+                                <img src="{% static 'images/indian.jpg' %}" alt="Avatar" class="img-fluid">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Mike Ross</h1>
@@ -84,7 +107,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="{% static 'images/img_avatar.png' %}" alt="Avatar" class="img-fluid">
+                                <img src="{% static 'images/indian.jpg' %}" alt="Avatar" class="img-fluid">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Rachel Zane</h1>
@@ -108,14 +131,14 @@
                     <div class="d-flex justify-content-center">
                         <div class="card-deck">
                             <div class="card" style="width: 22rem;"> <!-- Increased width -->
-                                <img src="{% static 'images/img_avatar.png' %}" class="card-img-top" alt="...">
+                                <img src="{% static 'images/indian.jpg' %}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title 1</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
                             <div class="card" style="width: 22rem;"> <!-- Increased width -->
-                                <img src="{% static 'images/img_avatar.png' %}" class="card-img-top" alt="...">
+                                <img src="{% static 'images/indian.jpg' %}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title 2</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -258,7 +281,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
     {% block extra_scripts %}{% endblock %}
 </body>
 </html>

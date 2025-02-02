@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("review.urls"), name="review-urls"),
+    path('accounts/', include('allauth.urls')),  # Include allauth URLs
+    path('', include('review.urls')),  # Include your app URLs
 ]
