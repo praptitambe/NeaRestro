@@ -1,13 +1,48 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&family=Pacifico&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+/* CSS Variables */
+:root {
+    --primary-font: "Playfair Display", serif;
+    --secondary-font: "Pacifico", serif;
+    --primary-color: #D1D646; /* dark violet */
+    --secondary-color: #F97068; /* orange */
+    --highlight-color: rgb(6, 91, 6); /* green */
+    --highlight-color-light: #FFB200; /* light yellow */
+    --text-color: #EDF2EF; /* dark pink */
+    --background-color: #212738; /* light grey */
+}
+
+/* Apply secondary color as background color to entire page */
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color); /* Ensure text is readable */
+    font-family: var(--primary-font);
+}
+
+/* Hero Image Styles */
 .hero-image {
-    background-image: url('../images/hero.png');
-    height: 100vh; /* Full viewport height */
-    width: 100%; /* Full width */
+    height: 60vh; /* Full viewport height */
+    width: 90%; /* Full width */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     padding-left: 20px; /* Add left padding */
     padding-right: 20px; /* Add right padding */
+    margin: 0 auto; /* Center the carousel */
+}
+
+.hero-image-1 {
+    background-image: url('../images/hero1.png');
+}
+
+.hero-image-2 {
+    background-image: url('../images/hero2.jpeg');
+}
+
+.hero-image-3 {
+    background-image: url('../images/hero3.png');
 }
 
 .hero-text {
@@ -85,17 +120,66 @@
 .flip-card-front {
     background-color: #bbb;
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure the image covers the entire front side */
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Style the back side */
 .flip-card-back {
-    background-color: dodgerblue;
+    background-color: var(--background-color); /* Use background color */
     color: white;
     transform: rotateY(180deg);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+/* Navbar background color */
+.navbar {
+    background-color: #D1D646;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-link {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* Footer background color */
+.footer {
+    background-color: #D1D646;
+}
+
+/* Card body background color */
+.card-body {
+    background-color: var(--background-color); /* Make background color transparent */
+    border: none; /* Remove border */
+}
+
+/* Add rounded corners to cards */
+.card {
+    border-radius: 15px; /* Add rounded corners */
+    background-color: transparent; /* Make background color transparent */
+    transition: transform 0.3s ease-in-out; /* Add transition for pop-up effect */
+}
+
+/* Pop-up effect on hover */
+.card:hover {
+    transform: scale(1.05); /* Scale up the card */
 }
 
 /* Media Queries for Responsiveness */
