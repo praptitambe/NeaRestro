@@ -182,6 +182,22 @@ body {
     transform: scale(1.05); /* Scale up the card */
 }
 
+
+/* Star Rating */
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating .fa-star {
+    color: #F9B114; /* Gold color for filled stars */
+    margin-right: 5px;
+}
+
+.rating .fa-star.far {
+    color: #ccc; /* Light grey color for empty stars */
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .hero-text h1 {
