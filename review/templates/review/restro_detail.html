@@ -39,25 +39,29 @@
     <div class="mt-5">
         <h2>Comments</h2>
         {% for comment in comments %}
-            <div class="card mb-3">
+            <div class="card mb-3 {% if not comment.is_approved and comment.author == user %}blurred{% endif %}">
                 <div class="card-body">
                     <h5 class="card-title">{{ comment.author }}</h5>
                     <p class="card-text">{{ comment.comment }}</p>
                     <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
-                        <div class="rating">
-                            {% for rating in ratings %}
-                                {% if rating.user == comment.user %}
-                                    {% for i in "12345" %}
-                                        {% if i|add:"0" <= rating.rating %}
-                                            <i class="fas fa-star"></i>
-                                        {% else %}
-                                            <i class="far fa-star"></i>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </p>
+                    <div class="rating">
+                        {% for rating in ratings %}
+                            {% if rating.user == comment.user %}
+                                {% for i in "12345" %}
+                                    {% if i|add:"0" <= rating.rating %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% if not comment.is_approved and comment.author == user %}
+                        <p class="approval text-warning">
+                            This comment is awaiting approval
+                        </p>
+                    {% endif %}
                 </div>
             </div>
         {% empty %}
