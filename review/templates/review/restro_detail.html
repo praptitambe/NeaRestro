@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <div class="container mt-5">
 
@@ -20,6 +22,7 @@
                         <p class="card-text"><a href="{{ restaurant.address_line2 }}" target="_blank">{{ restaurant.address_line2 }}</a></p>
                         <p class="card-text">{{ restaurant.email }}</p>
                         <p class="card-text">Cuisine: {{ restaurant.cuisine.cuisine_type }}</p>
+                        <p class="card-text">Average Rating: 
                             <div class="rating">
                                 {% for i in "12345" %}
                                     {% if i|add:"0" <= average_rating|stringformat:"d" %}
@@ -28,6 +31,7 @@
                                         <i class="far fa-star"></i>
                                     {% endif %}
                                 {% endfor %}
+                                <i class="fas fa-pen write-comment-icon" title="Write a comment" id="write-comment-icon"></i>
                             </div>
                         </p>
                     </div>
@@ -50,34 +54,87 @@
             </div>
         </div>
         {% for comment in comments %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ comment.author }}</h5>
-                    <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
-                    <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
-                    <div class="rating">
-                        {% for rating in ratings %}
-                            {% if rating.user == comment.user %}
-                                {% for i in "12345" %}
-                                    {% if i|add:"0" <= rating.rating %}
-                                        <i class="fas fa-star"></i>
-                                    {% else %}
-                                        <i class="far fa-star"></i>
+            {% if comment.is_approved or user.is_authenticated and comment.author == user %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ comment.author }}</h5>
+                        <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
+                        <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
+                        {% with ratings|dictsort:"-created_at" as user_ratings %}
+                            {% if user_ratings %}
+                                {% for rating in user_ratings %}
+                                    {% if rating.user == comment.author %}
+                                        <div class="rating">
+                                            {% for i in "12345" %}
+                                                {% if i|add:"0" <= rating.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
-                        {% endfor %}
+                        {% endwith %}
+                        {% if not comment.is_approved and comment.author == user %}
+                            <p class="approval text-warning">
+                                This comment is awaiting approval
+                            </p>
+                        {% endif %}
                     </div>
-                    {% if not comment.is_approved and comment.author == user %}
-                        <p class="approval text-warning">
-                            This comment is awaiting approval
-                        </p>
-                    {% endif %}
                 </div>
-            </div>
+            {% endif %}
         {% empty %}
             <p>No comments yet.</p>
         {% endfor %}
+        <!-- Creating New Comments -->
+        <div class="col-md-4 card mb-4 mt-3" id="comment-form-card">
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit" class="btn btn-light btn-lg">Submit</button>
+                </form>
+                {% else %}
+                <p>Log in to leave a comment</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- Modal for login message -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Please Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please login to add a comment.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="{% url 'account_login' %}" class="btn btn-primary">Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.getElementById('write-comment-icon').addEventListener('click', function() {
+        const userIsAuthenticated = "{{ user.is_authenticated|yesno:'true,false' }}";
+        if (!userIsAuthenticated) {
+            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        } else {
+            document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
 {% endblock %}
