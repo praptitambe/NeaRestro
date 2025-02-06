@@ -38,11 +38,22 @@
 
     <div class="mt-5">
         <h2>Comments</h2>
+        <!-- Displaying count of comments -->
+        <div class="row">
+            <div class="col-12">
+                <strong class="text-secondary">
+                    <i class="far fa-comments"></i> {{ comment_count }}
+                </strong>
+            </div>
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
         {% for comment in comments %}
-            <div class="card mb-3 {% if not comment.is_approved and comment.author == user %}blurred{% endif %}">
+            <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ comment.author }}</h5>
-                    <p class="card-text">{{ comment.comment }}</p>
+                    <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
                     <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
                     <div class="rating">
                         {% for rating in ratings %}
