@@ -60,27 +60,24 @@
                         <h5 class="card-title">{{ comment.author }}</h5>
                         <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
                         <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
-                        {% with ratings|dictsort:"-created_at" as user_ratings %}
-                            {% if user_ratings %}
-                                {% for rating in user_ratings %}
-                                    {% if rating.user == comment.author %}
-                                        <div class="rating">
-                                            {% for i in "12345" %}
-                                                {% if i|add:"0" <= rating.rating %}
-                                                    <i class="fas fa-star"></i>
-                                                {% else %}
-                                                    <i class="far fa-star"></i>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
+                        {% if comment_ratings %}
+                        <div class="rating">
+                            {% for i in "12345" %}
+                                {% if i|add:"0" <= comment.rating %}
+                                    <i class="fas fa-star"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                         {% if not comment.is_approved and comment.author == user %}
                             <p class="approval text-warning">
                                 This comment is awaiting approval
                             </p>
+                        {% endif %}
+                        {% if user.is_authenticated and comment.author == user %}
+                            <button class="btn btn-light btn-edit" data-comment-id="{{ comment.id }}" data-comment-text="{{ comment.comment }}">Edit</button>
                         {% endif %}
                     </div>
                 </div>
@@ -94,7 +91,7 @@
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                <form id="commentForm" method="post" action="{% url 'comment_edit' restaurant.slug 0 %}" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button id="submitButton" type="submit" class="btn btn-light btn-lg">Submit</button>
@@ -136,5 +133,20 @@
             document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
         }
     });
+
+    document.querySelectorAll('.btn-edit').forEach(button => {
+        button.addEventListener('click', function() {
+            const commentText = this.getAttribute('data-comment-text');
+            const commentId = this.getAttribute('data-comment-id');
+            const commentTextarea = document.getElementById('id_comment');
+            commentTextarea.value = commentText;
+            document.getElementById('commentForm').action = `{% url 'comment_edit' restaurant.slug 0 %}`.replace('0', commentId);
+            document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 </script>
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
