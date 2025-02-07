@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Restaurant, Comments
@@ -13,7 +13,7 @@ def home(request):
 def restro_detail(request, slug):
     restaurant = get_object_or_404(Restaurant, slug=slug)
     comments = Comments.objects.filter(restro=restaurant).order_by("-created_at")
-    comment_count = Comments.objects.filter(is_approved=True).count()
+    comment_count = comments.count()
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -22,13 +22,9 @@ def restro_detail(request, slug):
             comment.author = request.user
             comment.restro = restaurant
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
-            )
-            return HttpResponseRedirect(reverse('restro_detail', args=[slug]))
-
-    comment_form = CommentForm()
+            return redirect('restro_detail', slug=slug)
+    else:
+        comment_form = CommentForm()
 
     return render(request, 'review/restro_detail.html', {
         'restaurant': restaurant, 
@@ -46,9 +42,8 @@ def comment_edit(request, slug, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment updated successfully!')
-            return HttpResponseRedirect(reverse('restro_detail', args=[slug]))
-        else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            return redirect('restro_detail', slug=slug)
+    else:
+        form = CommentForm(instance=comment)
 
-    return HttpResponseRedirect(reverse('restro_detail', args=[slug]))
+    return render(request, 'review/edit_comment.html', {'form': form, 'restaurant': restaurant})

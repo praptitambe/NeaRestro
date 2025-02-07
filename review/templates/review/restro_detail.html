@@ -60,16 +60,14 @@
                         <h5 class="card-title">{{ comment.author }}</h5>
                         <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
                         <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
-                        {% if comment_ratings %}
+                        {% if comment.rating %}
                             <div class="rating">
-                                {% for rating in comment_ratings %}
-                                    {% for i in "12345" %}
-                                        {% if i|add:"0" <= rating.rating %}
-                                            <i class="fas fa-star"></i>
-                                        {% else %}
-                                            <i class="far fa-star"></i>
-                                        {% endif %}
-                                    {% endfor %}
+                                {% for i in "12345" %}
+                                    {% if i|add:"0" <= comment.rating %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -79,7 +77,7 @@
                             </p>
                         {% endif %}
                         {% if user.is_authenticated and comment.author == user %}
-                            <button class="btn btn-light btn-edit" data-comment-id="{{ comment.id }}" data-comment-text="{{ comment.comment }}">Edit</button>
+                            <button class="btn btn-light btn-edit" data-comment-id="{{ comment.id }}" data-comment-text="{{ comment.comment }}" data-comment-rating="{{ comment.rating }}">Edit</button>
                         {% endif %}
                     </div>
                 </div>
@@ -126,31 +124,8 @@
 </div>
 
 <script>
-    document.getElementById('write-comment-icon').addEventListener('click', function() {
-        const userIsAuthenticated = "{{ user.is_authenticated|yesno:'true,false' }}";
-        if (!userIsAuthenticated) {
-            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-            loginModal.show();
-        } else {
-            document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-
-    document.querySelectorAll('.btn-edit').forEach(button => {
-        button.addEventListener('click', function() {
-            const commentText = this.getAttribute('data-comment-text');
-            const commentId = this.getAttribute('data-comment-id');
-            const commentTextarea = document.getElementById('id_comment');
-            const submitButton = document.getElementById('submitButton');
-            commentTextarea.value = commentText;
-            submitButton.innerText = "Update";
-            document.getElementById('commentForm').action = `{% url 'comment_edit' restaurant.slug 0 %}`.replace('0', commentId);
-            document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+    const restaurantSlug = "{{ restaurant.slug }}";
+    const userIsAuthenticated = "{{ user.is_authenticated|yesno:'true,false' }}";
 </script>
-{% endblock %}
-
-{% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

@@ -190,12 +190,43 @@ body {
 }
 
 .rating .fa-star {
-    color: #F9B114; /* Gold color for filled stars */
+    color: #ccc; /* Light grey color for empty stars */
     margin-right: 5px;
+    cursor: pointer;
 }
 
-.rating .fa-star.far {
-    color: #ccc; /* Light grey color for empty stars */
+.rating .fa-star.fas {
+    color: gold; /* Gold color for filled stars */
+}
+
+.rating .write-comment-icon {
+    color: #ccc; /* Light grey color for the pen icon */
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.rating .write-comment-icon:hover::after {
+    content: "Write a comment";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.faded-text {
+    opacity: 0.5;
+}
+
+/* Custom styles for the login modal */
+.modal-header, .modal-body, .modal-footer {
+    color: black; /* Set text color to black */
 }
 
 /* Media Queries for Responsiveness */
@@ -227,7 +258,3 @@ body {
     }
 }
 
-.blurred {
-    filter: blur(5px);
-    opacity: 0.7;
-}

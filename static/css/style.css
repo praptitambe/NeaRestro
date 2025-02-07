@@ -190,12 +190,13 @@ body {
 }
 
 .rating .fa-star {
-    color: #F9B114; /* Gold color for filled stars */
+    color: #ccc; /* Light grey color for empty stars */
     margin-right: 5px;
+    cursor: pointer;
 }
 
-.rating .fa-star.far {
-    color: #ccc; /* Light grey color for empty stars */
+.rating .fa-star.fas {
+    color: gold; /* Gold color for filled stars */
 }
 
 .rating .write-comment-icon {
