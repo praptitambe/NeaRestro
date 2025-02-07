@@ -61,15 +61,17 @@
                         <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
                         <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
                         {% if comment_ratings %}
-                        <div class="rating">
-                            {% for i in "12345" %}
-                                {% if i|add:"0" <= comment.rating %}
-                                    <i class="fas fa-star"></i>
-                                {% else %}
-                                    <i class="far fa-star"></i>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
+                            <div class="rating">
+                                {% for rating in comment_ratings %}
+                                    {% for i in "12345" %}
+                                        {% if i|add:"0" <= rating.rating %}
+                                            <i class="fas fa-star"></i>
+                                        {% else %}
+                                            <i class="far fa-star"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
                         {% endif %}
                         {% if not comment.is_approved and comment.author == user %}
                             <p class="approval text-warning">
@@ -91,7 +93,7 @@
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="post" action="{% url 'comment_edit' restaurant.slug 0 %}" style="margin-top: 1.3em;">
+                <form id="commentForm" method="post" action="{% url 'restro_detail' restaurant.slug %}" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button id="submitButton" type="submit" class="btn btn-light btn-lg">Submit</button>
@@ -139,7 +141,9 @@
             const commentText = this.getAttribute('data-comment-text');
             const commentId = this.getAttribute('data-comment-id');
             const commentTextarea = document.getElementById('id_comment');
+            const submitButton = document.getElementById('submitButton');
             commentTextarea.value = commentText;
+            submitButton.innerText = "Update";
             document.getElementById('commentForm').action = `{% url 'comment_edit' restaurant.slug 0 %}`.replace('0', commentId);
             document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
         });
