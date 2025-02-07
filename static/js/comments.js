@@ -2,7 +2,9 @@ const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_comment");
 const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
-const ratingInput = document.getElementById("id_rating");
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteButtons = document.getElementsByClassName("btn-delete");
+const deleteConfirm = document.getElementById("deleteConfirm");
 
 document.getElementById('write-comment-icon').addEventListener('click', function() {
     if (userIsAuthenticated === "false") {
@@ -26,22 +28,11 @@ document.querySelectorAll('.btn-edit').forEach(button => {
     });
 });
 
-document.querySelectorAll('.rating-input .fa-star').forEach(star => {
-    star.addEventListener('click', function() {
-        const ratingValue = this.getAttribute('data-value');
-        ratingInput.value = ratingValue;
-        updateStars(ratingValue);
-    });
-});
-
-function updateStars(rating) {
-    document.querySelectorAll('.rating-input .fa-star').forEach(star => {
-        if (parseInt(star.getAttribute('data-value')) <= rating) {
-            star.classList.remove('far');
-            star.classList.add('fas');
-        } else {
-            star.classList.remove('fas');
-            star.classList.add('far');
-        }
+for (let button of deleteButtons) {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+        let commentId = e.target.getAttribute("data-comment-id");
+        deleteConfirm.href = `/restaurant/${restaurantSlug}/delete_comment/${commentId}/`;
+        deleteModal.show();
     });
 }

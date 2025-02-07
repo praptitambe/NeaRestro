@@ -47,3 +47,14 @@ def comment_edit(request, slug, comment_id):
         form = CommentForm(instance=comment)
 
     return render(request, 'review/edit_comment.html', {'form': form, 'restaurant': restaurant})
+
+def comment_delete(request, slug, comment_id):
+    restaurant = get_object_or_404(Restaurant, slug=slug)
+    comment = get_object_or_404(Comments, id=comment_id, author=request.user)
+
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully.')
+        return redirect('restro_detail', slug=slug)
+
+    return render(request, 'review/restro_detail.html', {'restaurant': restaurant})
