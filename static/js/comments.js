@@ -32,7 +32,7 @@ document.querySelectorAll('.btn-edit').forEach(button => {
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         e.preventDefault();
-        let commentId = e.target.getAttribute("data-comment-id");
+        let commentId = e.target.getAttribute("data-comment_id");
         console.log(commentId);
         deleteConfirm.href = `/restaurant/${restaurantSlug}/delete_comment/${commentId}/`;
         deleteModal.show();

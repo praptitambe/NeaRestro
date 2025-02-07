@@ -42,6 +42,7 @@ def comment_edit(request, slug, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Comment updated successfully.')
             return redirect('restro_detail', slug=slug)
     else:
         form = CommentForm(instance=comment)
@@ -51,8 +52,7 @@ def comment_edit(request, slug, comment_id):
 def comment_delete(request, slug, comment_id):
     restaurant = get_object_or_404(Restaurant, slug=slug)
     comment = get_object_or_404(Comments, id=comment_id, author=request.user)
-
-    if request.method == 'POST':
+    if request.method == 'GET':
         comment.delete()
         messages.success(request, 'Comment deleted successfully.')
         return redirect('restro_detail', slug=slug)

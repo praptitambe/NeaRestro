@@ -15,10 +15,19 @@
 
 /* Apply secondary color as background color to entire page */
 body {
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     color: var(--text-color); /* Ensure text is readable */
     font-family: var(--primary-font);
 }
+
+h2{
+    color: var(--background-color);
+}
+
+.text_color{
+    color: var(--background-color);
+}
+
 
 /* Hero Image Styles */
 .hero-image {
@@ -227,6 +236,43 @@ body {
 /* Custom styles for the login modal */
 .modal-header, .modal-body, .modal-footer {
     color: black; /* Set text color to black */
+}
+
+/* Ensure all restaurant cards have the same size */
+.restaurant-card {
+    width: 22rem;
+    height: 28rem; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.restaurant-card-img {
+    height: 100%; /* Set the height to 50% of the card */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.restaurant-card-body {
+    height:100%; /* Set the height to 50% of the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    padding: 10px; /* Add padding to the card body */
+    color: white; /* Set text color to white */
+    text-decoration: none; /* Remove text decoration */
+}
+
+.restaurant-card .card-title {
+    font-size: 1.25rem; /* Adjust font size for the title */
+    margin-bottom: 0.5rem; /* Add margin below the title */
+    text-decoration: none; /* Remove text decoration */
+}
+
+.restaurant-card .card-text {
+    font-size: 0.875rem; /* Adjust font size for the text */
+    margin-bottom: 0.5rem; /* Add margin below the text */
+    text-decoration: none; /* Remove text decoration */
 }
 
 /* Media Queries for Responsiveness */

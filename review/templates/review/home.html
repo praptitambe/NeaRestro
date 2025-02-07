@@ -52,107 +52,46 @@
         </button>
     </div>
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{% static 'images/indian.png'%}" alt="Avatar" class="img-fluid">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>John Doe</h1>
-                            <p>Architect & Engineer</p>
-                            <p>We love that guy</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{% static 'images/chinese.png' %}" alt="Avatar" class="img-fluid">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>Jane Doe</h1>
-                            <p>Designer</p>
-                            <p>We love her style</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{% static 'images/italian.jpeg' %}" alt="Avatar" class="img-fluid">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>Mike Ross</h1>
-                            <p>Lawyer</p>
-                            <p>We love his skills</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="{% static 'images/thai.png' %}" alt="Avatar" class="img-fluid">
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>Rachel Zane</h1>
-                            <p>Paralegal</p>
-                            <p>We love her dedication</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            {% for restaurant in restaurants %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <div class="d-flex justify-content-center">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="{% url 'restro_detail' restaurant.slug %}">
-                                <div class="card" style="width: 22rem;">
-                                    {% if restaurant.restro_image %}
-                                        <img src="{{ restaurant.restro_image.url }}" class="card-img-top" alt="{{ restaurant.name }}">
-                                    {% else %}
-                                        <img src="{% static 'images/default_image.png' %}" class="card-img-top" alt="{{ restaurant.name }}">
-                                    {% endif %}
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ restaurant.name }}</h5>
-                                        <p>{{restaurant.average_rating}}</p>
-                                        <p class="card-text">{{ restaurant.address_line1 }}, {{ restaurant.city }}, {{ restaurant.postcode }}</p>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-inner">
+                {% for restaurant in restaurants %}
+                    {% if forloop.counter0|divisibleby:3 %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="d-flex justify-content-center">
+                                <div class="row">
+                    {% endif %}
+                                    <div class="col-md-4">
+                                        <a href="{% url 'restro_detail' restaurant.slug %}">
+                                            <div class="card restaurant-card">
+                                                {% if restaurant.restro_image %}
+                                                    <img src="{{ restaurant.restro_image.url }}" class="card-img-top restaurant-card-img" alt="{{ restaurant.name }}">
+                                                {% else %}
+                                                    <img src="{% static 'images/default_image.png' %}" class="card-img-top restaurant-card-img" alt="{{ restaurant.name }}">
+                                                {% endif %}
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{ restaurant.name }}</h5>
+                                                    <p>{{ restaurant.average_rating }}</p>
+                                                    <p class="card-text">{{ restaurant.address_line1 }}, {{ restaurant.city }}, {{ restaurant.postcode }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
+                    {% if forloop.counter|divisibleby:3 or forloop.last %}
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                        {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="row">
-                        {% endif %}
-                    </div>
-                </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            {% endfor %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </main>
 
