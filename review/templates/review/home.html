@@ -70,7 +70,15 @@
                                                 {% endif %}
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{ restaurant.name }}</h5>
-                                                    <p>{{ restaurant.average_rating }}</p>
+                                                    <p>{{ restaurant.average_rating }}
+                                                        {% for i in "12345" %}
+                                                            {% if i <= restaurant.average_rating|stringformat:"d" %}
+                                                                <span class="fa fa-star checked" style="color: gold;"></span>
+                                                            {% else %}
+                                                                <span class="fa fa-star"></span>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </p>
                                                     <p class="card-text">{{ restaurant.address_line1 }}, {{ restaurant.city }}, {{ restaurant.postcode }}</p>
                                                 </div>
                                             </div>

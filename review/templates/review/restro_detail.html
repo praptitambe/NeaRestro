@@ -22,17 +22,14 @@
                         <p class="card-text"><a href="{{ restaurant.address_line2 }}" target="_blank">{{ restaurant.address_line2 }}</a></p>
                         <p class="card-text">{{ restaurant.email }}</p>
                         <p class="card-text">Cuisine: {{ restaurant.cuisine.cuisine_type }}</p>
-                        <p class="card-text">Average Rating: 
-                            <div class="rating">
-                                {% for i in "12345" %}
-                                    {% if i|add:"0" <= average_rating|stringformat:"d" %}
-                                        <i class="fas fa-star"></i>
-                                    {% else %}
-                                        <i class="far fa-star"></i>
-                                    {% endif %}
-                                {% endfor %}
-                                <i class="fas fa-pen write-comment-icon" title="Write a comment" id="write-comment-icon"></i>
-                            </div>
+                        <p>{{ restaurant.average_rating }}
+                            {% for i in "12345" %}
+                                {% if i <= restaurant.average_rating|stringformat:"d" %}
+                                    <span class="fa fa-star checked" style="color: gold;"></span>
+                                {% else %}
+                                    <span class="fa fa-star"></span>
+                                {% endif %}
+                            {% endfor %}
                         </p>
                     </div>
                 </div>
