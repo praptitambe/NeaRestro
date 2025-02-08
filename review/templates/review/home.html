@@ -84,7 +84,7 @@
         </p>
         <div class="row">
             {% for restaurant in results %}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card restaurant-card">
                     {% if restaurant.restro_image %}
                     <img src="{{ restaurant.restro_image.url }}" class="card-img-top restaurant-card-img" alt="{{ restaurant.name }}">
@@ -115,7 +115,7 @@
     <div class="container mt-5">
         <div class="row">
             {% for restaurant in restaurants %}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-6 col-lg-4 mb-4">
                 <a href="{% url 'restro_detail' restaurant.slug %}">
                     <div class="card restaurant-card">
                         {% if restaurant.restro_image %}
