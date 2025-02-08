@@ -19,7 +19,45 @@ body {
     color: var(--text-color); /* Ensure text is readable */
     font-family: var(--primary-font);
 }
-/* Ensure text color is black on signup and login pages */
+/******Forms******** */
+
+.custom-card {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 30px; /* Add rounded corners */
+}
+
+.custom-card .form-group {
+    margin-bottom: 1rem;
+}
+
+.custom-card label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.custom-card .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.custom-card .form-text {
+    color: #6c757d;
+}
+
+.custom-card .invalid-feedback {
+    color: #dc3545;
+}
+
+.custom-card .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
 #account-page {
     color: black;
 }
@@ -286,6 +324,22 @@ h2{
     font-size: 0.875rem; /* Adjust font size for the text */
     margin-bottom: 0.5rem; /* Add margin below the text */
     text-decoration: none; /* Remove text decoration */
+}
+
+/* Custom styles for the signup, login, and logout buttons */
+.btn-rounded {
+    border-radius: 15px; /* Add rounded corners */
+    padding: 10px 20px; /* Add padding for better appearance */
+    font-size: 1rem; /* Adjust font size */
+    background-color: var(--primary-color); /* Use primary color */
+    border: none; /* Remove border */
+    color: #fff; /* Set text color to white */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Add transition for hover effect */
+}
+
+.btn-rounded:hover {
+    background-color: var(--highlight-color); /* Change background color on hover */
 }
 
 /* Media Queries for Responsiveness */

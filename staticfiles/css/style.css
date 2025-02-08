@@ -19,7 +19,11 @@ body {
     color: var(--text-color); /* Ensure text is readable */
     font-family: var(--primary-font);
 }
-/* Ensure text color is black on signup and login pages */
+/******Forms******** */
+.custom-card{
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
 #account-page {
     color: black;
 }

@@ -70,7 +70,7 @@
     </header> -->
 
         <!-- Navigation -->
-        <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-link nav" data-bs-theme="dark">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light navbar-link nav" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img src="{% static 'images/logo.png' %}" alt="Logo" height="70">
@@ -80,7 +80,7 @@
                     <span id="nav-toggler-icon" class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                                 href="{% url 'home' %}">Home</a>
