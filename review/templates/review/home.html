@@ -86,6 +86,7 @@
         <div class="row">
             {% for restaurant in results %}
             <div class="col-md-6 col-lg-4 mb-4">
+                <a href="{% url 'restro_detail' restaurant.slug %}">
                 <div class="card restaurant-card">
                     {% if restaurant.restro_image %}
                     <img src="{{ restaurant.restro_image.url }}" class="card-img-top restaurant-card-img" alt="{{ restaurant.name }}">
@@ -106,6 +107,7 @@
                         <p class="card-text">{{ restaurant.address_line1 }}, {{ restaurant.city }}, {{ restaurant.postcode }}</p>
                     </div>
                 </div>
+            </a>
             </div>
             {% endfor %}
         </div>
