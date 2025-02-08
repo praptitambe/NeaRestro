@@ -77,10 +77,7 @@ h2{
     color: var(--background-color);
 }
 
-/* Custom styles for text color */
-main{
-    color: black; /* Set text color to black */
-}
+
 
 /* Hero Image Styles */
 .hero-image {

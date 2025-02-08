@@ -6,14 +6,14 @@ const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 
-document.getElementById('write-comment-icon').addEventListener('click', function() {
-    if (userIsAuthenticated === "false") {
-        var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-        loginModal.show();
-    } else {
-        document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
-    }
-});
+// document.getElementById('write-comment-icon').addEventListener('click', function() {
+//     if (userIsAuthenticated === "false") {
+//         var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+//         loginModal.show();
+//     } else {
+//         document.getElementById('comment-form-card').scrollIntoView({ behavior: 'smooth' });
+//     }
+// });
 
 document.querySelectorAll('.btn-edit').forEach(button => {
     button.addEventListener('click', function() {

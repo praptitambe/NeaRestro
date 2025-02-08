@@ -2,21 +2,61 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Restaurant, Comments
-from .forms import CommentForm
+from .forms import CommentForm, RestroSearchForm
 from django.db.models import Q
+from django.core import serializers
+from django.http import JsonResponse
 
 
 # Create your views here.
 def home(request):
-    if 'q' in request.GET:
-        q = request.GET['q']
-        # restaurants = Restaurant.objects.filter(name__icontains=q)
-        multiple_q = Q(Q(name__icontains=q) | Q(city__icontains=q))
-        restaurants = Restaurant.objects.filter(multiple_q)
-    else:
-        restaurants = Restaurant.objects.all()
-    return render(request, 'review/home.html', {'restaurants': restaurants})
+    # if 'q' in request.GET:
+    #     q = request.GET['q']
+    #     # restaurants = Restaurant.objects.filter(name__icontains=q)
+    #     multiple_q = Q(Q(name__icontains=q) | Q(city__icontains=q))
+    #     restaurants = Restaurant.objects.filter(multiple_q)
+    # else:
+    restaurants = Restaurant.objects.all()
+    form = RestroSearchForm()
+    q = ''
+    c = ''
+    results = []
+    query = Q()
 
+    if request.POST.get('action') == 'post':
+        search_string = str(request.POST.get('ss'))
+        
+        if search_string is not None:
+            search_string = Restaurant.objects.filter(
+                name__icontains=search_string)[:5]
+
+            data = serializers.serialize('json', list(
+                search_string), fields=('id', 'name', 'city'))
+            print(data)
+            return JsonResponse({'search_string': data})
+
+    if 'q' in request.GET:
+        form = RestroSearchForm(request.GET)
+        if form.is_valid():
+            q = form.cleaned_data['q']
+            c = form.cleaned_data['c']
+
+            if c is not None:
+                query &= Q(cuisine__cuisine_type__icontains=c)
+            if q is not None:
+                query &= Q(Q(name__icontains=q) | Q(city__icontains=q))
+
+            results = Restaurant.objects.filter(query)
+
+    return render(request, 'review/home.html', {
+                'form': form,
+                'q' : q,
+                'c' : c,
+                'results': results,
+                'restaurants': restaurants,
+            })    
+
+    
 def restro_detail(request, slug):
     restaurant = get_object_or_404(Restaurant, slug=slug)
     comments = Comments.objects.filter(restro=restaurant).order_by("-created_at")
@@ -65,4 +105,3 @@ def comment_delete(request, slug, comment_id):
         return redirect('restro_detail', slug=slug)
 
     return render(request, 'review/restro_detail.html', {'restaurant': restaurant})
-
