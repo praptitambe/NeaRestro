@@ -76,12 +76,13 @@
             {% if c %}
             restaurant with {{ c }} cuisine
             {% endif %}
-        </h2>
-        <p>
             {% with results.count as total_results %}
-            Found {{ total_results }} result{{ total_results|pluralize }}
+            - Found {{ total_results }} result{{ total_results|pluralize }}
+            {% if results.count == 0 %}
+            <h2>Please try again</h2>
+            {% endif %}
             {% endwith %}
-        </p>
+        </h2>
         <div class="row">
             {% for restaurant in results %}
             <div class="col-md-6 col-lg-4 mb-4">
@@ -109,7 +110,7 @@
             {% endfor %}
         </div>
     </div>
-    {% endif %}
+    {% else %}
 
     <!-- Restaurant Cards -->
     <div class="container mt-5">
@@ -142,7 +143,7 @@
             {% endfor %}
         </div>
     </div>
-
+    {% endif %}
 </main>
 
 {% endblock %}
