@@ -3,11 +3,18 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Restaurant, Comments
 from .forms import CommentForm
+from django.db.models import Q
 
 
 # Create your views here.
 def home(request):
-    restaurants = Restaurant.objects.all()
+    if 'q' in request.GET:
+        q = request.GET['q']
+        # restaurants = Restaurant.objects.filter(name__icontains=q)
+        multiple_q = Q(Q(name__icontains=q) | Q(city__icontains=q))
+        restaurants = Restaurant.objects.filter(multiple_q)
+    else:
+        restaurants = Restaurant.objects.all()
     return render(request, 'review/home.html', {'restaurants': restaurants})
 
 def restro_detail(request, slug):
@@ -58,3 +65,4 @@ def comment_delete(request, slug, comment_id):
         return redirect('restro_detail', slug=slug)
 
     return render(request, 'review/restro_detail.html', {'restaurant': restaurant})
+

@@ -20,10 +20,51 @@ body {
     font-family: var(--primary-font);
 }
 /******Forms******** */
-.custom-card{
+
+.custom-card {
     background-color: var(--background-color);
     color: var(--text-color);
+    border-radius: 30px; /* Add rounded corners */
 }
+
+.custom-card .form-group {
+    margin-bottom: 1rem;
+}
+
+.custom-card label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.custom-card .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+/* Custom styles for Django messages */
+
+.alert-msg{
+    background-color: #b6f3c4; /* Light green background for success messages */
+    color: #155724; /* Text color for success messages */
+}
+
+.custom-card .form-text {
+    color: #6c757d;
+}
+
+.custom-card .invalid-feedback {
+    color: #dc3545;
+}
+
+.custom-card .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
 #account-page {
     color: black;
 }
@@ -36,6 +77,10 @@ h2{
     color: var(--background-color);
 }
 
+/* Custom styles for text color */
+main{
+    color: black; /* Set text color to black */
+}
 
 /* Hero Image Styles */
 .hero-image {
