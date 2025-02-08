@@ -157,7 +157,7 @@ h2{
 }
 
 /* Navbar background color */
-.navbar {
+.nav {
     background-color: #D1D646;
     font-family: "Pacifico", serif;
     font-weight: 400;
@@ -167,10 +167,19 @@ h2{
 .navbar-link {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: italic;
+    font-weight: bold;
     font-size: 1.2rem;
 }
+
+/* Navbar toggler button */
+#nav-toggler {
+    border-color: #000; /* Change border color to dark */
+}
+
+#nav-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Change icon color to dark */
+}
+
 
 /* Footer background color */
 .footer {
