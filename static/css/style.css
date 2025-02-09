@@ -3,25 +3,60 @@
 
 /* CSS Variables */
 :root {
-    --primary-font: "Playfair Display", serif;
-    --secondary-font: "Pacifico", serif;
-    --primary-color: #D1D646; /* dark violet */
-    --secondary-color: #F97068; /* orange */
+    --primary-font: "Merienda", serif;
+    --secondary-font: "Playfair Display", serif;
+    --primary-color: #FFD700; /* Yellow */
+    --secondary-color: #F09319; /* orange */
     --highlight-color: rgb(6, 91, 6); /* green */
     --highlight-color-light: #FFB200; /* light yellow */
     --text-color: #EDF2EF; /* dark pink */
-    --background-color: #212738; /* light grey */
+    --background-color: #3D5300; /* dark green */
+    --button-color: #F09319; /* button color */
 }
 
-body {
+
+.msg{
     font-family: var(--primary-font);
+    font-size: medium;
 }
-/******Forms******** */
+
+/* Add color to buttons */
+button, .btn {
+    background-color: var(--button-color); /* Set button background color */
+    color: #fff; /* Set button text color to white */
+    border: 2px solid #FFD700; /* Add yellow border */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for background color and shadow */
+}
+
+button:hover, .btn:hover {
+    background-color: darken(var(--button-color), 10%); /* Darken button background color on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Change anchor link color in cards to primary color */
+.card a {
+    color: var(--primary-color); /* Set anchor link color to primary color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.card a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/******Signup,login,logout Forms******** */
 
 .custom-card {
     background-color: var(--background-color);
     color: var(--text-color);
     border-radius: 30px; /* Add rounded corners */
+    font-family: var(--primary-font);
+}
+
+/* Add secondary color to custom card text */
+.custom-card p, .custom-card label, .custom-card .form-text, .custom-card .invalid-feedback {
+    color: var(--secondary-color); /* Set text color to secondary color */
 }
 
 .custom-card .form-group {
@@ -31,7 +66,6 @@ body {
 .custom-card label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
 }
 
 .custom-card .form-control {
@@ -41,15 +75,22 @@ body {
     border-radius: 0.25rem;
 }
 
+/* Add padding below buttons in custom cards */
+.custom-card button, .custom-card .btn {
+    margin-bottom: 1rem; /* Add margin below buttons */
+}
+
 /* Custom styles for Django messages */
 
 .alert-msg{
     background-color: #b6f3c4; /* Light green background for success messages */
     color: #155724; /* Text color for success messages */
+    font-family: var(--secondary-font);
 }
 
-.custom-card .form-text {
-    color: #6c757d;
+.form-text {
+    font-family: var(--primary-font);
+    color: white;
 }
 
 .custom-card .invalid-feedback {
@@ -68,6 +109,7 @@ body {
 
 h2{
     color: var(--background-color);
+    font-family: var(--secondary-color);
 }
 
 .text_color{
@@ -186,14 +228,14 @@ h2{
 
 /* Navbar background color */
 .nav {
-    background-color: #D1D646;
-    font-family: "Pacifico", serif;
+    background-color: #FFE31A;
+    font-family: var(--secondary-font);
     font-weight: 400;
     font-style: normal;
 }
 
 .navbar-link {
-    font-family: "Playfair Display", serif;
+    font-family: var(--secondary-font);
     font-optical-sizing: auto;
     font-weight: bold;
     font-size: 1.2rem;
@@ -211,13 +253,16 @@ h2{
 
 /* Footer background color */
 .footer {
-    background-color: #D1D646;
+    background-color: #FFE31A;
+    color: #F09319;
+    font-family: var(--secondary-font);
 }
 
 /* Card body background color */
 .card-body {
-    background-color: var(--background-color); 
+    background-color:#3D5300; 
     border: none; 
+    font-family: var(--primary-font);
 }
 
 /* Add rounded corners to cards */
@@ -282,41 +327,36 @@ h2{
 /* Custom styles for the restaurant cards */
 
 .restaurant-card {
-    width: 22rem;
-    height: 28rem; 
+    width: 100%; /* Ensure the card takes full width of the column */
+    height: 100%; /* Ensure the card takes full height of the column */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: white;
+    padding: 15px; /* Add padding for spacing */
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for transform and shadow */
+}
+
+.restaurant-card:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 .restaurant-card-img {
-    height: 100%; 
-    object-fit: cover; 
+    width: 100%; /* Ensure the image takes full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px 15px 0 0; /* Add rounded corners to the top of the image */
+    object-fit: cover; /* Ensure the image covers the entire area */
 }
 
 .restaurant-card-body {
-    height:100%; /* Set the height to 50% of the card */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
-    padding: 10px; /* Add padding to the card body */
-    color: white; /* Set text color to white */
-    text-decoration: none; /* Remove text decoration */
+    padding: 15px; /* Add padding for spacing */
+    background-color: var(--background-color); /* Set background color */
+    border-radius: 0 0 15px 15px; /* Add rounded corners to the bottom of the card */
+    color: var(--text-color); /* Set text color */
+    font-family: var(--primary-font); /* Set font family */
 }
-
-.restaurant-card .card-title {
-    font-size: 1.25rem; /* Adjust font size for the title */
-    margin-bottom: 0.5rem; /* Add margin below the title */
-    text-decoration: none; /* Remove text decoration */
-}
-
-.restaurant-card .card-text {
-    font-size: 0.875rem; /* Adjust font size for the text */
-    margin-bottom: 0.5rem; /* Add margin below the text */
-    text-decoration: none; /* Remove text decoration */
-}
-
 
 .comment-card {
     color: white;
@@ -349,6 +389,29 @@ h2{
     border-radius: 8px;
     border: 1px solid #ccc; /* Add a border around the form container */
     background-color: #F5F2F2; /* Set a background color for the form container */
+    font-family: var(--primary-font);
+}
+
+/* Add shadow to buttons */
+button, .btn {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+}
+
+button:hover, .btn:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Add green background color to search division */
+.search-division {
+    background-color: var(--background-color); /* Set background color to green */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+/* Add rounded corners to filter dropdown */
+.dropdown-menu {
+    border-radius: 10px; /* Add rounded corners */
 }
 
 /* Media Queries for Responsiveness */

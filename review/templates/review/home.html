@@ -43,13 +43,11 @@
     </div>
 
     <!-- Search Form -->
-    <div class="container mt-5">
+    <div class="container mt-5 search-division">
         <form class="dropdown row justify-content-center align-items-center g-2" method="get" action="{% url 'home' %}">
             <div class="col-md-4">
-                <!-- <input class="form-control" type="search" name="q" placeholder="Search by city or cuisine" aria-label="Search"> -->
                 {% csrf_token %}
-             {{ form.q }}
-
+                {{ form.q }}
                 <ul class="dropdown-menu col-12 pl-2" role="menu" aria-labelledby="menu" id="list">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Reading</a></li>
                     <div class="dropdown-divider"></div>
@@ -58,12 +56,12 @@
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Slough</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     {{ form.c }}
                 </div>
             </div>
-            <div class="col-md-2 ms-n3">
+            <div class="col-md-4">
                 <button class="btn btn-outline-primary w-100" type="submit">Search</button>
             </div>
         </form>
@@ -72,7 +70,7 @@
     <!-- Search Results -->
     {% if q %}
     <div class="container mt-5">
-        <h2>Results for {{ q }}
+        <h2>Results for "{{ q }}"
             {% if c %}
             restaurant with {{ c }} cuisine
             {% endif %}
@@ -93,7 +91,7 @@
                     {% else %}
                     <img src="{% static 'images/default_image.png' %}" class="card-img-top restaurant-card-img" alt="{{ restaurant.name }}">
                     {% endif %}
-                    <div class="card-body">
+                    <div class="card-body restaurant-card-body">
                         <h5 class="card-title">{{ restaurant.name }}</h5>
                         <p>{{ restaurant.average_rating }}
                             {% for i in "12345" %}
@@ -107,12 +105,12 @@
                         <p class="card-text">{{ restaurant.address_line1 }}, {{ restaurant.city }}, {{ restaurant.postcode }}</p>
                     </div>
                 </div>
-            </a>
+                </a>
             </div>
             {% endfor %}
         </div>
     </div>
-    {% else %}
+    {% endif %}
 
     <!-- Restaurant Cards -->
     <div class="container mt-5">
@@ -126,7 +124,7 @@
                         {% else %}
                             <img src="{% static 'images/default_image.png' %}" class="card-img-top restaurant-card-img" alt="{{ restaurant.name }}">
                         {% endif %}
-                        <div class="card-body">
+                        <div class="card-body restaurant-card-body">
                             <h5 class="card-title">{{ restaurant.name }}</h5>
                             <p>{{ restaurant.average_rating }}
                                 {% for i in "12345" %}
@@ -145,7 +143,6 @@
             {% endfor %}
         </div>
     </div>
-    {% endif %}
 </main>
 
 {% endblock %}

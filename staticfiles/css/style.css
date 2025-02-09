@@ -3,8 +3,8 @@
 
 /* CSS Variables */
 :root {
-    --primary-font: "Playfair Display", serif;
-    --secondary-font: "Pacifico", serif;
+    --primary-font: "Merienda", serif;
+    --secondary-font: "Playfair Display", serif;
     --primary-color: #D1D646; /* dark violet */
     --secondary-color: #F97068; /* orange */
     --highlight-color: rgb(6, 91, 6); /* green */
@@ -13,18 +13,19 @@
     --background-color: #212738; /* light grey */
 }
 
-/* Apply secondary color as background color to entire page */
-body {
-    /* background-color: var(--secondary-color); */
-    color: var(--text-color); /* Ensure text is readable */
+
+.msg{
     font-family: var(--primary-font);
+    font-size: medium;
 }
+
 /******Forms******** */
 
 .custom-card {
     background-color: var(--background-color);
     color: var(--text-color);
     border-radius: 30px; /* Add rounded corners */
+    font-family: var(--primary-font);
 }
 
 .custom-card .form-group {
@@ -49,6 +50,7 @@ body {
 .alert-msg{
     background-color: #b6f3c4; /* Light green background for success messages */
     color: #155724; /* Text color for success messages */
+    font-family: var(--secondary-font);
 }
 
 .custom-card .form-text {
@@ -71,6 +73,7 @@ body {
 
 h2{
     color: var(--background-color);
+    font-family: var(--secondary-color);
 }
 
 .text_color{
@@ -122,22 +125,7 @@ h2{
     font-size: 1.5rem; /* Adjust font size for responsiveness */
 }
 
-.hero-text form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
 
-.hero-text .form-control {
-    width: 300px;
-    margin-right: 10px;
-    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
-}
-
-.hero-text .btn {
-    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
-}
 
 /* Flipping Card Styles */
 .flip-card {
@@ -204,14 +192,14 @@ h2{
 
 /* Navbar background color */
 .nav {
-    background-color: #D1D646;
-    font-family: "Pacifico", serif;
+    background-color: #FFE31A;
+    font-family: var(--secondary-font);
     font-weight: 400;
     font-style: normal;
 }
 
 .navbar-link {
-    font-family: "Playfair Display", serif;
+    font-family: var(--secondary-font);
     font-optical-sizing: auto;
     font-weight: bold;
     font-size: 1.2rem;
@@ -229,20 +217,23 @@ h2{
 
 /* Footer background color */
 .footer {
-    background-color: #D1D646;
+    background-color: #FFE31A;
+    color: #F09319;
+    font-family: var(--secondary-font);
 }
 
 /* Card body background color */
 .card-body {
-    background-color: var(--background-color); /* Make background color transparent */
-    border: none; /* Remove border */
+    background-color:#3D5300; 
+    border: none; 
+    font-family: var(--primary-font);
 }
 
 /* Add rounded corners to cards */
 .card {
-    border-radius: 15px; /* Add rounded corners */
-    background-color: transparent; /* Make background color transparent */
-    transition: transform 0.3s ease-in-out; /* Add transition for pop-up effect */
+    border-radius: 15px; 
+    background-color: transparent; 
+    transition: transform 0.3s ease-in-out; 
 }
 
 /* Pop-up effect on hover */
@@ -297,10 +288,11 @@ h2{
     color: black; /* Set text color to black */
 }
 
-/* Ensure all restaurant cards have the same size */
+/* Custom styles for the restaurant cards */
+
 .restaurant-card {
     width: 22rem;
-    height: 28rem; /* Set a fixed height */
+    height: 28rem; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -308,8 +300,8 @@ h2{
 }
 
 .restaurant-card-img {
-    height: 100%; /* Set the height to 50% of the card */
-    object-fit: cover; /* Ensure the image covers the entire area */
+    height: 100%; 
+    object-fit: cover; 
 }
 
 .restaurant-card-body {
@@ -320,6 +312,7 @@ h2{
     padding: 10px; /* Add padding to the card body */
     color: white; /* Set text color to white */
     text-decoration: none; /* Remove text decoration */
+    font-family: var(--primary-font); 
 }
 
 .restaurant-card .card-title {
@@ -332,6 +325,11 @@ h2{
     font-size: 0.875rem; /* Adjust font size for the text */
     margin-bottom: 0.5rem; /* Add margin below the text */
     text-decoration: none; /* Remove text decoration */
+}
+
+
+.comment-card {
+    color: white;
 }
 
 /* About Page */
@@ -361,6 +359,7 @@ h2{
     border-radius: 8px;
     border: 1px solid #ccc; /* Add a border around the form container */
     background-color: #F5F2F2; /* Set a background color for the form container */
+    font-family: var(--primary-font);
 }
 
 /* Media Queries for Responsiveness */
