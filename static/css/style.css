@@ -1,5 +1,5 @@
 /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&family=Pacifico&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&family=Pacifico&family=Playfair+Display:wght@400;700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 /* CSS Variables */
 :root {
@@ -15,9 +15,10 @@
 }
 
 
-.msg{
+#msg{
     font-family: var(--primary-font);
     font-size: medium;
+    font-weight: bold;
 }
 
 /* Add color to buttons */
@@ -227,18 +228,19 @@ h2{
 }
 
 /* Navbar background color */
-.nav {
+#navbar {
     background-color: #FFE31A;
     font-family: var(--secondary-font);
-    font-weight: 400;
     font-style: normal;
+    color: var(--background-color); /* Set text color to dark */
+
 }
 
 .navbar-link {
-    font-family: var(--secondary-font);
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-family: var(--secondary-font); /* Set font family to Playfair Display */
+    font-weight: bold; /* Make the text bold */
+    font-size: 1.2rem; /* Adjust font size */
+    color: var(--background-color); /* Set text color to dark */
 }
 
 /* Navbar toggler button */
@@ -253,9 +255,10 @@ h2{
 
 /* Footer background color */
 .footer {
-    background-color: #FFE31A;
-    color: #F09319;
+    background-color: #FFE31A !important;
+    color: var(--background-color); 
     font-family: var(--secondary-font);
+    font-weight: bold; /* Make footer text bold */
 }
 
 /* Card body background color */
@@ -263,6 +266,7 @@ h2{
     background-color:#3D5300; 
     border: none; 
     font-family: var(--primary-font);
+    font-weight: bold; /* Make card body text bold */
 }
 
 /* Add rounded corners to cards */
@@ -385,9 +389,8 @@ h2{
     max-width: 800px; /* Set a maximum width for the form container */
     margin: 3% auto;
     padding: 20px;
-    box-shadow: var(--smal-box-shadow);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
     border-radius: 8px;
-    border: 1px solid #ccc; /* Add a border around the form container */
     background-color: #F5F2F2; /* Set a background color for the form container */
     font-family: var(--primary-font);
 }
@@ -395,7 +398,7 @@ h2{
 /* Add shadow to buttons */
 button, .btn {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
-    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for shadow and background color */
 }
 
 button:hover, .btn:hover {
@@ -412,6 +415,12 @@ button:hover, .btn:hover {
 /* Add rounded corners to filter dropdown */
 .dropdown-menu {
     border-radius: 10px; /* Add rounded corners */
+}
+
+/* Change submit button color to green on hover in collaborator form */
+#collaborate button[type="submit"]:hover {
+    background-color: #28a745; /* Set background color to green */
+    color: #fff; /* Set text color to white */
 }
 
 /* Media Queries for Responsiveness */
