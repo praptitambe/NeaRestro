@@ -53,11 +53,18 @@ button:hover, .btn:hover {
     color: var(--text-color);
     border-radius: 30px; /* Add rounded corners */
     font-family: var(--primary-font);
+    font-size: 2rem; /* Increase text size */
 }
+
+.custom-card a {
+    color: var(--primary-color); /* Set anchor link color to primary color */
+    text-decoration: none; /* Remove underline from links */
+} 
 
 /* Add secondary color to custom card text */
 .custom-card p, .custom-card label, .custom-card .form-text, .custom-card .invalid-feedback {
     color: var(--secondary-color); /* Set text color to secondary color */
+    font-size: 1.5rem; /* Increase text size for specific elements */
 }
 
 .custom-card .form-group {
