@@ -133,15 +133,15 @@ h2{
 }
 
 .hero-image-1 {
-    background-image: url('../images/hero1.png');
+    background-image: url('../images/hero4.jpeg');
 }
 
 .hero-image-2 {
-    background-image: url('../images/hero2.jpeg');
+    background-image: url('../images/hero.png');
 }
 
 .hero-image-3 {
-    background-image: url('../images/hero3.png');
+    background-image: url('../images/hero5.jpeg');
 }
 
 .hero-text {
@@ -149,9 +149,12 @@ h2{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--secondary-color);
     text-align: center;
-    padding: 0 20px; /* Add padding for smaller screens */
+    padding: 5px; /* Add padding for spacing */
+    background-color: rgba(9, 115, 97, 0.5); /* Semi-transparent background */
+    border-radius: 40px; /* Add rounded corners */
+    font-family: var(--secondary-font);
 }
 
 .hero-text h1 {
