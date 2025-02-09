@@ -49,9 +49,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_summernote',
     'cloudinary_storage',
     'cloudinary',
     'review',
+    'about',
 ]
 
 SITE_ID = 1

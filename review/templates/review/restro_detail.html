@@ -53,7 +53,7 @@
         {% for comment in comments %}
             {% if comment.is_approved or user.is_authenticated and comment.author == user %}
                 <div class="card mb-3">
-                    <div class="card-body">
+                    <div class="card-body comment-card">
                         <h5 class="card-title">{{ comment.author }}</h5>
                         <p class="card-text {% if not comment.is_approved %}faded-text{% endif %}">{{ comment.comment }}</p>
                         <p class="card-text"><small class="text-muted">Posted on {{ comment.created_at }}</small></p>
@@ -85,7 +85,7 @@
         {% endfor %}
         <!-- Creating New Comments -->
         <div class="col-md-4 card mb-4 mt-3" id="comment-form-card">
-            <div class="card-body">
+            <div class="card-body comment-card">
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>

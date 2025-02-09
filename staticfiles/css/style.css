@@ -334,6 +334,35 @@ h2{
     text-decoration: none; /* Remove text decoration */
 }
 
+/* About Page */
+
+.profile-pic {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Optional: Add rounded corners */
+    box-shadow: var(--smal-box-shadow); /* Optional: Add a shadow */
+    border-bottom: 4px solid #2C0703;
+    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover; /* Ensure the image fits within the circle */
+    aspect-ratio: 1/1; /* Maintain a 1:1 aspect ratio */
+}
+
+/* Collaborate Form */
+
+#collaborate {
+    width: 100%;
+    max-width: 800px; /* Set a maximum width for the form container */
+    margin: 3% auto;
+    padding: 20px;
+    box-shadow: var(--smal-box-shadow);
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Add a border around the form container */
+    background-color: #F5F2F2; /* Set a background color for the form container */
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .hero-text h1 {

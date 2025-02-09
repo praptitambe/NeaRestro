@@ -13,10 +13,7 @@
     --background-color: #212738; /* light grey */
 }
 
-/* Apply secondary color as background color to entire page */
 body {
-    /* background-color: var(--secondary-color); */
-    color: var(--text-color); /* Ensure text is readable */
     font-family: var(--primary-font);
 }
 /******Forms******** */
@@ -122,22 +119,7 @@ h2{
     font-size: 1.5rem; /* Adjust font size for responsiveness */
 }
 
-.hero-text form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
 
-.hero-text .form-control {
-    width: 300px;
-    margin-right: 10px;
-    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
-}
-
-.hero-text .btn {
-    margin-bottom: 10px; /* Add margin for spacing on smaller screens */
-}
 
 /* Flipping Card Styles */
 .flip-card {
@@ -234,15 +216,15 @@ h2{
 
 /* Card body background color */
 .card-body {
-    background-color: var(--background-color); /* Make background color transparent */
-    border: none; /* Remove border */
+    background-color: var(--background-color); 
+    border: none; 
 }
 
 /* Add rounded corners to cards */
 .card {
-    border-radius: 15px; /* Add rounded corners */
-    background-color: transparent; /* Make background color transparent */
-    transition: transform 0.3s ease-in-out; /* Add transition for pop-up effect */
+    border-radius: 15px; 
+    background-color: transparent; 
+    transition: transform 0.3s ease-in-out; 
 }
 
 /* Pop-up effect on hover */
@@ -297,10 +279,11 @@ h2{
     color: black; /* Set text color to black */
 }
 
-/* Ensure all restaurant cards have the same size */
+/* Custom styles for the restaurant cards */
+
 .restaurant-card {
     width: 22rem;
-    height: 28rem; /* Set a fixed height */
+    height: 28rem; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -308,8 +291,8 @@ h2{
 }
 
 .restaurant-card-img {
-    height: 100%; /* Set the height to 50% of the card */
-    object-fit: cover; /* Ensure the image covers the entire area */
+    height: 100%; 
+    object-fit: cover; 
 }
 
 .restaurant-card-body {
@@ -332,6 +315,40 @@ h2{
     font-size: 0.875rem; /* Adjust font size for the text */
     margin-bottom: 0.5rem; /* Add margin below the text */
     text-decoration: none; /* Remove text decoration */
+}
+
+
+.comment-card {
+    color: white;
+}
+
+/* About Page */
+
+.profile-pic {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Optional: Add rounded corners */
+    box-shadow: var(--smal-box-shadow); /* Optional: Add a shadow */
+    border-bottom: 4px solid #2C0703;
+    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover; /* Ensure the image fits within the circle */
+    aspect-ratio: 1/1; /* Maintain a 1:1 aspect ratio */
+}
+
+/* Collaborate Form */
+
+#collaborate {
+    width: 100%;
+    max-width: 800px; /* Set a maximum width for the form container */
+    margin: 3% auto;
+    padding: 20px;
+    box-shadow: var(--smal-box-shadow);
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Add a border around the form container */
+    background-color: #F5F2F2; /* Set a background color for the form container */
 }
 
 /* Media Queries for Responsiveness */

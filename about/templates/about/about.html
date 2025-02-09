@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <img src="{{ about.profile_image.url }}" alt="{{ about.title }}" class="img-fluid profile-pic">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ about.title }}</h2> <br><br>
+                {{ about.content | safe }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-right">
+            <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5" id="collaborate">
+            <h3>Partner with Us! 🍽️ Let’s Bring Your Restaurant to the Spotlight.</h3>
+            <p>We’d love for your restaurant to be a part of our journey! Ready to showcase your unique dishes and attract 
+                new guests? Let’s build a space where every food lover can discover and enjoy your culinary creations. 
+                📩 Get in touch with us today and let’s make the dining experience even more unforgettable together! ❤️🍴✨</p>
+
+            <!-- add your form here. Your submit button should 
+                                have the classes of btn, btn-secondary -->
+
+            <form id="collaborate-form" method="post" enctype="multipart/form-data">
+                 {{ collaborate_form | crispy }}
+                 {% csrf_token %}
+                 <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
