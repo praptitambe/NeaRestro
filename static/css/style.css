@@ -262,6 +262,30 @@ h2{
     color: var(--background-color); 
     font-family: var(--secondary-font);
     font-weight: bold; /* Make footer text bold */
+    padding: 20px 0; /* Add padding for spacing */
+}
+
+.footer a {
+    color: var(--background-color); /* Set link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.footer .fab {
+    font-size: 1.5rem; /* Adjust icon size */
+    color: var(--background-color); /* Set icon color */
+}
+
+@media (max-width: 768px) {
+    .footer .text-md-left {
+        text-align: center !important;
+    }
+    .footer .text-md-right {
+        text-align: center !important;
+    }
 }
 
 /* Card body background color */
