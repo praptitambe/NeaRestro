@@ -348,6 +348,7 @@ This experience not only enhanced my technical skills but also improved my probl
 
 ## Future Enhancements
 
+![Comment updated](static/images/readme/future_scope.png)
 1. **Advanced Search Filters**: Implement advanced search filters to allow users to narrow down their search results based on additional criteria such as price range, distance, and dietary preferences (e.g., vegan, gluten-free).
 
 2. **Interactive Map**: Add an interactive map feature that displays restaurant locations and allows users to see nearby dining options. The map could include filters for cuisine type and user ratings.
