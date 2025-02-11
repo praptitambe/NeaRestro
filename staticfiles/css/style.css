@@ -5,12 +5,9 @@
     --secondary-font: "Playfair Display", serif;
     --primary-color: #FFD700; /* Yellow */
     --secondary-color: #F09319; /* Orange */
-    --highlight-color: rgb(6, 91, 6); /* Green */
-    --highlight-color-light: #FFB200; /* Light yellow */
     --text-color: #EDF2EF; /* white */
     --background-color: #3D5300; /* Dark green */
-    --button-color: #F09319; /* Button color orange*/
-    --button-color-dark: #D17C17; /* Dark orange color */
+    --button-color-dark: #ABBA7C; /* Dark orange color */
 }
 
 
@@ -22,10 +19,10 @@
 
 /* Add color to buttons */
 button, .btn {
-    background-color: var(--button-color); /* Set button background color */
-    color: #fff; /* Set button text color to white */
-    border: 2px solid #FFD700; /* Add yellow border */
-    border-radius: 10px; /* Add rounded corners */
+    background-color: var(--secondary-color); 
+    color: #fff; 
+    border: 2px solid #FFD700; 
+    border-radius: 10px; 
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for background color and shadow */

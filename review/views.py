@@ -27,7 +27,6 @@ def home(request):
             data = serializers.serialize(
                 'json', list(search_string), fields=('id', 'name', 'city')
             )
-            print(data)
             return JsonResponse({'search_string': data})
 
     if 'q' in request.GET:
@@ -71,7 +70,6 @@ def restro_detail(request, slug):
             return HttpResponseRedirect(reverse('restro_detail', args=[slug]))
 
     comment_form = CommentForm()
-    print(comments)
     return render(request, 'review/restro_detail.html', {
         'restaurant': restaurant, 
         'comments': comments, 
