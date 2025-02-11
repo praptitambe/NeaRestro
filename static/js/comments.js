@@ -1,8 +1,5 @@
 const commentForm = document.getElementById("commentForm");
 const deleteButtons = document.getElementsByClassName("btn-delete");
-const deleteConfirm = document.getElementById("deleteConfirm");
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-
 document.querySelectorAll('.btn-edit').forEach(button => {
     button.addEventListener('click', function() {
         const commentTextValue = this.getAttribute('data-comment-text');
@@ -22,6 +19,8 @@ document.querySelectorAll('.btn-edit').forEach(button => {
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         e.preventDefault();
+        const deleteConfirm = document.getElementById("deleteConfirm");
+        const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
         let commentId = e.target.getAttribute("data-comment_id");
         deleteConfirm.href = `/restaurant/${restaurantSlug}/delete_comment/${commentId}/`;
         deleteModal.show();

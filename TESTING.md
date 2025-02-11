@@ -129,7 +129,12 @@ All files were edited according to the suggestions provided by the validator and
 ##### views.py
 ![views.py](static/images/readme/testing/python-validator-review-views.png)
 
+### JavaScript Validation
 
+[JSHint](https://jshint.com/) was used to validate the small amount of JavaScript code added to the project. External JS, for Bootstrap purposes, obtained via [CDN](https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js) was not validated through JSHint. There are two variables coming from html.
+
+![Edit and delete](static/images/readme/testing/jshint_validation.png)
+*Used for edit and delete button logic*
 
 ## Lighthouse
 
@@ -140,7 +145,20 @@ All files were edited according to the suggestions provided by the validator and
 #### Home page
 ![home page](static/images/readme/testing/desktop_lighthouse_testing.png)
 
+#### Restaurant details page
+![restaurant details page](static/images/readme/testing/desktop_restaurant_details_lighthouse.png)
+
+#### Join Us page
+![join us page](static/images/readme/testing/desktop_joinus_lighthouse.png)
+
 ### Mobile Lighthouse
 
 #### Home page
 ![home page](static/images/readme/testing/mobile_lighthouse_testing.png)
+
+#### Restaurant details page
+![restaurant details page](static/images/readme/testing/desktop_restaurant_details_lighthouse.png)
+
+#### Join Us page
+![join us  page](static/images/readme/testing/mobile_join_us_lighthouse.png)
+
