@@ -30,7 +30,10 @@ Finding a restaurant that serves your favorite cuisine can be a daunting task, e
 
 NeaRestro is the go-to platform for anyone looking to explore the culinary landscape of their city, offering a comprehensive and enjoyable experience for food lovers everywhere.
 
-**Agile methodology**
+## Agile 
+- Agile methodology is "a set of methods and practices where solutions evolve through collaboration between self-organising, cross-functional teams"
+- A project board was set-up to keep track of user stories. Each user story was assigned a 'MoSCoW' prioritisation (must have, should have, could have, won't have) tag. 
+
 #### MoSCoW Tecnhique
 The MoSCoW technique is a prioritization method used to decide which features to implement in a project. It stands for:
 
@@ -44,18 +47,26 @@ I have implemented all Must-have and Should-have features. Could-have are for fu
 
 ![MoSCoW Technique](static/images/readme/moscow.png)
 
-## UX Design Process
 - **Link to User Stories in GitHub Projects:**
   - [GitHub Projects kanban board](https://github.com/users/praptitambe/projects/11/views/1)
+
+## UX Design Process
+
 ## Design
 
 ### Wireframes
 
 The wireframes for NeaRestro were created using Balsamiq to create clear, visual layouts of the site's design. While the initial designs provided a solid foundation, some elements evolved during development to enhance the overall user experience. These changes, though different from the original wireframes, resulted in a more polished and user-friendly application.
 
-- [Click here for desktop wireframe](static/images/readme/wireframe-desktop.png)
-- [Click here for tablet wireframe](static/images/readme/wireframe-tablet.png)
-- [Click here for mobile wireframe](static/images/readme/wireframe-mobile.png)
+- Wireframes were created with Balsamiq to create clear, visual layouts of the site's design. It helped in identifying potential issues and refining the user interface early on, ensuring a more seamless user experience.
+ - The wireframes were developed at the start of the project and then worked on as I went through, to tweak the changes I made to the design and feel of the site
+
+![wfhome](static/images/readme/desktop_home_page.png)
+![wfrestaurat_details](static/images/readme/desktop_restaurant_details_page.png)
+![wfjoinus](static/images/readme/desktop_joinus_page.png)
+![wfhome](static/images/readme/mobile_home_page.png)
+![wfrestaurat_details](static/images/readme/mobile_restaurant_details_page.png)
+![wfjoinus](static/images/readme/mobile_joinus_page.png)
 
 ### Logo
 The logo for NeaRestro was created by me, reflecting the essence of the application. Here are some key points about the logo:
