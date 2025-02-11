@@ -15,7 +15,7 @@
 #### Home
 ![Home page validator screenshot](static/images/readme/testing/html-validator-home.png)
 
-#### Chef Page
+#### Restaurant details Page
 ![Chef page validator screenshot](static/images/readme/testing/html-validator-restro-details.png)
 
 #### Join Us 
