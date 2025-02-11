@@ -1,16 +1,16 @@
+/* Global Styles */
 
-
-/* CSS Variables */
 :root {
     --primary-font: "Merienda", serif;
     --secondary-font: "Playfair Display", serif;
     --primary-color: #FFD700; /* Yellow */
-    --secondary-color: #F09319; /* orange */
-    --highlight-color: rgb(6, 91, 6); /* green */
-    --highlight-color-light: #FFB200; /* light yellow */
-    --text-color: #EDF2EF; /* dark pink */
-    --background-color: #3D5300; /* dark green */
-    --button-color: #F09319; /* button color */
+    --secondary-color: #F09319; /* Orange */
+    --highlight-color: rgb(6, 91, 6); /* Green */
+    --highlight-color-light: #FFB200; /* Light yellow */
+    --text-color: #EDF2EF; /* Dark pink */
+    --background-color: #3D5300; /* Dark green */
+    --button-color: #F09319; /* Button color */
+    --button-color-dark: #D17C17; /* Darker button color */
 }
 
 
@@ -26,12 +26,13 @@ button, .btn {
     color: #fff; /* Set button text color to white */
     border: 2px solid #FFD700; /* Add yellow border */
     border-radius: 10px; /* Add rounded corners */
+    margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for background color and shadow */
 }
 
 button:hover, .btn:hover {
-    background-color: darken(var(--button-color), 10%); /* Darken button background color on hover */
+    background-color: var(--button-color-dark); /* Use darker button color on hover */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
@@ -285,14 +286,6 @@ h2{
     color: var(--background-color); /* Set icon color */
 }
 
-@media (max-width: 768px) {
-    .footer .text-md-left {
-        text-align: center !important;
-    }
-    .footer .text-md-right {
-        text-align: center !important;
-    }
-}
 
 /* Card body background color */
 .card-body {
@@ -331,14 +324,14 @@ h2{
     color: gold; /* Gold color for filled stars */
 }
 
-.rating .write-comment-icon {
+.write-comment-icon {
     color: #ccc; /* Light grey color for the pen icon */
     margin-left: 10px;
     cursor: pointer;
     position: relative;
 }
 
-.rating .write-comment-icon:hover::after {
+.write-comment-icon:hover::after {
     content: "Write a comment";
     position: absolute;
     top: -25px;
@@ -482,6 +475,15 @@ button:hover, .btn:hover {
 
     .hero-text .form-control {
         width: 200px; /* Smaller input width for mobile devices */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer .text-md-left {
+        text-align: center !important;
+    }
+    .footer .text-md-right {
+        text-align: center !important;
     }
 }
 

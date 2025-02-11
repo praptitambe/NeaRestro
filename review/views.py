@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect,reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Restaurant, Comments
@@ -25,13 +25,14 @@ def home(request):
 
     if request.POST.get('action') == 'post':
         search_string = str(request.POST.get('ss'))
-        
+
         if search_string is not None:
             search_string = Restaurant.objects.filter(
                 name__icontains=search_string)[:5]
 
-            data = serializers.serialize('json', list(
-                search_string), fields=('id', 'name', 'city'))
+            data = serializers.serialize(
+                'json', list(search_string), fields=('id', 'name', 'city')
+            )
             print(data)
             return JsonResponse({'search_string': data})
 
@@ -49,19 +50,19 @@ def home(request):
             results = Restaurant.objects.filter(query)
 
     return render(request, 'review/home.html', {
-                'form': form,
-                'q' : q,
-                'c' : c,
-                'results': results,
-                'restaurants': restaurants,
-            })    
+        'form': form,
+        'q': q,
+        'c': c,
+        'results': results,
+        'restaurants': restaurants,
+    })
 
-    
+
 def restro_detail(request, slug):
     restaurant = get_object_or_404(Restaurant, slug=slug)
     comments = Comments.objects.filter(restro=restaurant).order_by("-created_at")
-    comment_count = comments.count()
-
+    comment_count = comments.filter(is_approved=True).count()
+    
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -69,10 +70,14 @@ def restro_detail(request, slug):
             comment.author = request.user
             comment.restro = restaurant
             comment.save()
-            return redirect('restro_detail', slug=slug)
-    else:
-        comment_form = CommentForm()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
+            return HttpResponseRedirect(reverse('restro_detail', args=[slug]))
 
+    comment_form = CommentForm()
+    print(comments)
     return render(request, 'review/restro_detail.html', {
         'restaurant': restaurant, 
         'comments': comments, 
@@ -94,7 +99,11 @@ def comment_edit(request, slug, comment_id):
     else:
         form = CommentForm(instance=comment)
 
-    return render(request, 'review/edit_comment.html', {'form': form, 'restaurant': restaurant})
+    return render(
+        request, 'review/edit_comment.html', 
+        {'form': form, 'restaurant': restaurant}
+    )
+
 
 def comment_delete(request, slug, comment_id):
     restaurant = get_object_or_404(Restaurant, slug=slug)
@@ -104,4 +113,7 @@ def comment_delete(request, slug, comment_id):
         messages.success(request, 'Comment deleted successfully.')
         return redirect('restro_detail', slug=slug)
 
-    return render(request, 'review/restro_detail.html', {'restaurant': restaurant})
+    return render(
+        request, 'review/restro_detail.html', 
+        {'restaurant': restaurant}
+        )

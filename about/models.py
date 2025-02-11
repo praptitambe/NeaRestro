@@ -6,6 +6,8 @@ from cloudinary.models import CloudinaryField
 """
 About model - to store information about the site owner
 """
+
+
 class About(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -14,7 +16,8 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
 class CollaborateRequest(models.Model):
 
     name = models.CharField(max_length=200)
@@ -26,7 +29,9 @@ class CollaborateRequest(models.Model):
     city = models.CharField(max_length=255)
     postcode = models.CharField(max_length=20)
     cuisine_type = models.CharField(max_length=140)
-    restro_image = CloudinaryField('collaboration_image', default='placeholder')
+    restro_image = CloudinaryField(
+        'collaboration_image', default='placeholder'
+    )
     read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -6,4 +6,3 @@ from .models import Cuisine, Restaurant, Comments
 admin.site.register(Cuisine)
 admin.site.register(Restaurant)
 admin.site.register(Comments)
-
