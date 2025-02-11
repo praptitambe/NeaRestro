@@ -10,12 +10,6 @@ from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
-    # if 'q' in request.GET:
-    #     q = request.GET['q']
-    #     # restaurants = Restaurant.objects.filter(name__icontains=q)
-    #     multiple_q = Q(Q(name__icontains=q) | Q(city__icontains=q))
-    #     restaurants = Restaurant.objects.filter(multiple_q)
-    # else:
     restaurants = Restaurant.objects.all()
     form = RestroSearchForm()
     q = ''
@@ -62,7 +56,7 @@ def restro_detail(request, slug):
     restaurant = get_object_or_404(Restaurant, slug=slug)
     comments = Comments.objects.filter(restro=restaurant).order_by("-created_at")
     comment_count = comments.filter(is_approved=True).count()
-    
+
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():

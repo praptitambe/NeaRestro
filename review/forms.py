@@ -1,13 +1,14 @@
 from .models import Comments, Cuisine
 from django import forms
 
-
+# <---------Comment form------------->
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ('comment', 'rating')
 
 
+# <---------Restaurant search form------------->
 class RestroSearchForm(forms.Form):
     q = forms.CharField(
         label='',
