@@ -163,28 +163,40 @@ NeaRestro is designed to provide a comprehensive and enjoyable experience for fo
 ### Join Us
 
 - **Collaborate to add restaurant** : Restaurant owner can add their restaurant to our website to reachout to more people in community and gain more customers.
-![Join Us](static/images/readme/join-us-form.png)
+![Join Us](static/images/readme/collaborate_form.png)
 
-- **Recipe submitted** : Once, you submit recipe, there will be a pop-up message which acknowledge the submission.
-![Recipe submitted](static/images/readme/request-confirm.png)
+- **Request submitted** : Once, you submit restaurant details, there will be a pop-up message which acknowledge the submission.
+![Recipe submitted](static/images/readme/collaborate_success_msg.png)
 
-- **Write Reviews**: Users can write reviews and rate recipes, helping others to choose the best recipes.
-![Reviw](static/images/readme/crud-view.png)
+- **Write Reviews**: Users can write reviews and rate restaurants, helping others to choose the best restaurants.
+![Reviw](static/images/readme/add_comment.png)
 
-- **Awaiting approval**: Users will receive apporoval awaiting text after editing their own comment.
-![Approval Awaiting](static/images/readme/approval-awaiting.png)
+- **Awaiting approval**: Users will receive apporoval awaiting text after adding their comment.
+![Approval Awaiting](static/images/readme/awaiting_approval_msg.png)
 
 - **Comment Approved**: Admin will approve comment from dashboard.
-![Comment Approved](static/images/readme/comment-approved.png)
+![Comment Approved](static/images/readme/admin_approve_comment.png)
+
+- **Approved comment displayed**: Admin will approve comment from dashboard.
+![Comment Approved](static/images/readme/approved_comment.png)
 
 - **Comment Updated**: Users will be able to see their comments updated.
-![Comment updated](static/images/readme/comment-updated.png)
+![Comment updated](static/images/readme/comment_updated.png)
 
 - **Delete Confirmation**: If a user wants to delets his comment, he can but a confirm message will pop up to ask him again to be sure.
-![Delete Confirm](static/images/readme/delete-confirm.png)
+![Delete Confirm](static/images/readme/comment_delete_confirm_modal.png)
 
 - **Comment Deleted** : User will see commment deleted pop up.
-![Comment daleted](static/images/readme/comment-deleted.png)
+![Comment daleted](static/images/readme/comment_delete_success_msg.png)
+
+- **Search Restaurant by name** : User will be able to search restaurant by name or city.
+![Comment daleted](static/images/readme/search_by_name.png)
+
+- **Searched result of Restaurant by name** : User will be able to see restaurant searched results 
+![Comment daleted](static/images/readme/search_name.png)
+
+- **Search Restaurant by name or city with filter cuisine** : User will be able to see results for restaurant searched.
+![Comment daleted](static/images/readme/search_with_filter.png)
 
 ### Admin panel Database
 
