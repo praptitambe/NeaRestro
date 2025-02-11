@@ -348,24 +348,20 @@ This experience not only enhanced my technical skills but also improved my probl
 
 ## Future Enhancements
 
-![Comment updated](static/images/readme/future_scope.png)
-1. **Advanced Search Filters**: Implement advanced search filters to allow users to narrow down their search results based on additional criteria such as price range, distance, and dietary preferences (e.g., vegan, gluten-free).
-
-2. **Interactive Map**: Add an interactive map feature that displays restaurant locations and allows users to see nearby dining options. The map could include filters for cuisine type and user ratings.
-
-3. **User Profiles**: Enhance user profiles to include more detailed information, such as favorite restaurants, review history, and personalized recommendations based on past activity.
-
-4. **Social Media Integration**: Improve social media integration by allowing users to share their reviews and favorite restaurants directly to their social media accounts. This could help increase engagement and attract new users.
-
-5. **Multilingual Support**: Implement multilingual support to cater to a broader audience. This feature would allow users to view the platform in their preferred language.
-
-6. **AI-Powered Recommendations**: Utilize AI to provide personalized restaurant recommendations based on user preferences, past reviews, and dining history. This feature could enhance the user experience by offering tailored suggestions.
-
-7. **Enhanced Review System**: Improve the review system by allowing users to upload photos and videos with their reviews. This feature could provide more comprehensive insights into the dining experience.
-
-8. **Reservation System**: Integrate a reservation system that allows users to book tables directly through the platform. This feature could include real-time availability and confirmation notifications.
-
 By implementing these future enhancements, NeaRestro can continue to evolve and provide an even more valuable and engaging experience for its users.
+
+![Future Scope](static/images/readme/future_scope.png)
+**Add images while adding review**: Implement feature to uplaoad images while adding reviews as a user.
+
+**Advanced Search Filters**: Implement advanced search filters to allow users to narrow down their search results based on additional criteria such as price range, distance, and dietary preferences (e.g., vegan, gluten-free).
+
+**Interactive Map**: Add an interactive map feature that displays restaurant locations and allows users to see nearby dining options. The map could include filters for cuisine type and user ratings.
+
+**User Profiles**: Enhance user profiles to include more detailed information, such as favorite restaurants, review history, and personalized recommendations based on past activity.
+
+**AI-Powered Recommendations**: Utilize AI to provide personalized restaurant recommendations based on user preferences, past reviews, and dining history. This feature could enhance the user experience by offering tailored suggestions.
+
+**Enhanced Review System**: Improve the review system by allowing users to upload photos and videos with their reviews. This feature could provide more comprehensive insights into the dining experience.
 
 ## Credits
 
