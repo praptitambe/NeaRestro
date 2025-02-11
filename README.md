@@ -163,10 +163,10 @@ NeaRestro is designed to provide a comprehensive and enjoyable experience for fo
 ### Join Us
 
 - **Collaborate to add restaurant** : Restaurant owner can add their restaurant to our website to reachout to more people in community and gain more customers.
-![Join Us](static/images/readme/collaborate_form.png)
+![Join Us](static/images/readme/collaboration_form.png)
 
 - **Request submitted** : Once, you submit restaurant details, there will be a pop-up message which acknowledge the submission.
-![Recipe submitted](static/images/readme/collaborate_success_msg.png)
+![Recipe submitted](static/images/readme/collaboration_success_msg.png)
 
 - **Write Reviews**: Users can write reviews and rate restaurants, helping others to choose the best restaurants.
 ![Reviw](static/images/readme/add_comment.png)
@@ -202,7 +202,7 @@ NeaRestro is designed to provide a comprehensive and enjoyable experience for fo
 
 The database for Yummy Tummy is designed to efficiently manage and store user data, recipes, comments, and ratings. It uses PostgreSQL, a powerful, open-source relational database system, which ensures data integrity and supports complex queries.
 
-![Admin panel](static/images/readme/admin.png)
+![Admin panel](static/images/readme/admin_databases.png)
 
 ## Database
 I used Code Institute's PostgreSQL database.
