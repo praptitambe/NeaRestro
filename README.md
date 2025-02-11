@@ -30,7 +30,28 @@ Finding a restaurant that serves your favorite cuisine can be a daunting task, e
 
 NeaRestro is the go-to platform for anyone looking to explore the culinary landscape of their city, offering a comprehensive and enjoyable experience for food lovers everywhere.
 
-## Agile 
+## User Expereince (UX)
+
+Throughout the development of Yummy Tummy, **Agile methodology** was employed to ensure iterative progress and continuous improvement. 
+This approach facilitated regular feedback and allowed for adaptive planning, ultimately leading to a more refined and user-centric application.
+
+### User Goals
+
+Users want a platform that:
+- Provides a wide variety of restaurants to explore.
+- Allows easy categorization and search of restaurants by name or city and filter by cuisine.
+- Includes user reviews and ratings to help in selecting restaurants.
+- Easy navigation
+
+### Site Owner Goals
+
+The site owner aims to:
+- Create a comprehensive and user-friendly restaurant review platform.
+- Encourage user engagement through interactive features like comments and ratings.
+- Continuously update the recipe database with new and diverse recipes.
+- Maintain a high standard of UX/UI design to enhance user satisfaction.
+
+### Agile 
 - Agile methodology is "a set of methods and practices where solutions evolve through collaboration between self-organising, cross-functional teams"
 - A project board was set-up to keep track of user stories. Each user story was assigned a 'MoSCoW' prioritisation (must have, should have, could have, won't have) tag. 
 
@@ -119,6 +140,57 @@ The logo for NeaRestro was created by me, reflecting the essence of the applicat
 - **Social Media Integration**: Users can follow the platform on social media and share restaurant listings with their friends. This feature helps increase engagement and reach.
 
 NeaRestro is designed to provide a comprehensive and enjoyable experience for food lovers, making it easy to discover and explore the culinary landscape of their city.
+
+## Features
+### Authentication
+
+- **Sign-In**: Users can sign in to their accounts to access personalized features such as adding ratings and reviews.
+![Sign-In](static/images/readme/log-in.png)
+
+- **Sign-In Success** : Once log-in, user will see success message.
+![Sign-in success](static/images/readme/log-in-confirm.png) 
+
+- **Register**: New users can register for an account to start collaborating and sharing their recipes.
+![Register](static/images/readme/register.png)
+
+- **Sign-out** : In the header, if you are logged in, you can press the 'Logout' button which will take you to the sign-out page.
+![Sign-out](static/images/readme/sign-out.png) 
+
+
+- **Sign-out success** : User will see sign-out message.
+![Sign-out success](static/images/readme/sign-out-confirm.png)
+
+### Join Us
+
+- **Collaborate to add restaurant** : Restaurant owner can add their restaurant to our website to reachout to more people in community and gain more customers.
+![Join Us](static/images/readme/join-us-form.png)
+
+- **Recipe submitted** : Once, you submit recipe, there will be a pop-up message which acknowledge the submission.
+![Recipe submitted](static/images/readme/request-confirm.png)
+
+- **Write Reviews**: Users can write reviews and rate recipes, helping others to choose the best recipes.
+![Reviw](static/images/readme/crud-view.png)
+
+- **Awaiting approval**: Users will receive apporoval awaiting text after editing their own comment.
+![Approval Awaiting](static/images/readme/approval-awaiting.png)
+
+- **Comment Approved**: Admin will approve comment from dashboard.
+![Comment Approved](static/images/readme/comment-approved.png)
+
+- **Comment Updated**: Users will be able to see their comments updated.
+![Comment updated](static/images/readme/comment-updated.png)
+
+- **Delete Confirmation**: If a user wants to delets his comment, he can but a confirm message will pop up to ask him again to be sure.
+![Delete Confirm](static/images/readme/delete-confirm.png)
+
+- **Comment Deleted** : User will see commment deleted pop up.
+![Comment daleted](static/images/readme/comment-deleted.png)
+
+### Admin panel Database
+
+The database for Yummy Tummy is designed to efficiently manage and store user data, recipes, comments, and ratings. It uses PostgreSQL, a powerful, open-source relational database system, which ensures data integrity and supports complex queries.
+
+![Admin panel](static/images/readme/admin.png)
 
 ## Database
 I used Code Institute's PostgreSQL database.
