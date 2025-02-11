@@ -34,7 +34,7 @@ NeaRestro is the go-to platform for anyone looking to explore the culinary lands
 
 ## User Expereince (UX)
 
-Throughout the development of Yummy Tummy, **Agile methodology** was employed to ensure iterative progress and continuous improvement. 
+Throughout the development of NeaRestro, **Agile methodology** was employed to ensure iterative progress and continuous improvement. 
 This approach facilitated regular feedback and allowed for adaptive planning, ultimately leading to a more refined and user-centric application.
 
 ### User Goals
