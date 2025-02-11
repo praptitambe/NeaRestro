@@ -113,4 +113,4 @@ All files were edited according to the suggestions provided by the validator and
 ### Mobile Lighthouse
 
 #### Home page
-![home page](static/images/readme/testing/desktop_lighthouse_testing.png)
+![home page](static/images/readme/testing/mobile_lighthouse_testing.png)
