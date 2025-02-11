@@ -142,6 +142,9 @@ NeaRestro is designed to provide a comprehensive and enjoyable experience for fo
   - Challenges included contextual adjustments to AI-generated outputs, which were resolved effectively, enhancing inclusivity.
 
 ## Testing Summary
+## Testing
+- Please see [TESTING.md](TESTING.md) file for all testing.
+
 - **Manual Testing:**
   - **Devices and Browsers Tested:** [List devices and browsers, ensuring testing was conducted with assistive technologies such as screen readers or keyboard-only navigation.]
   - **Features Tested:** [Summarise features tested manually, e.g., CRUD operations, navigation.]
