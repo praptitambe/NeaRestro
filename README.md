@@ -30,6 +30,7 @@ Finding a restaurant that serves your favorite cuisine can be a daunting task, e
 
 NeaRestro is the go-to platform for anyone looking to explore the culinary landscape of their city, offering a comprehensive and enjoyable experience for food lovers everywhere.
 
+**Agile methodology**
 #### MoSCoW Tecnhique
 The MoSCoW technique is a prioritization method used to decide which features to implement in a project. It stands for:
 
@@ -108,52 +109,205 @@ The logo for NeaRestro was created by me, reflecting the essence of the applicat
 
 NeaRestro is designed to provide a comprehensive and enjoyable experience for food lovers, making it easy to discover and explore the culinary landscape of their city.
 
+## Database
+I used Code Institute's PostgreSQL database.
+
+### Database planning
+I used an Entity Relationship Diagram to plan my database.
+
+![ERD](static/images/readme/ERD.png)
+
+## Entity-Relationship Diagram (ERD)
+
+The key entities and their relationships are as follows:
+
+1. **User**
+   - **Attributes**:
+     - `id`: Unique identifier for the user (Primary Key)
+     - `username`: The username of the user
+     - `email`: The email address of the user
+     - `password`: The password for the user's account
+     - `date_joined`: The date and time when the user joined
+   - **Relationships**:
+     - A user can write multiple comments (One-to-Many relationship with the `Comment` entity)
+
+2. **Cuisine**
+   - **Attributes**:
+     - `id`: Unique identifier for the cuisine (Primary Key)
+     - `cuisine_type`: The type of cuisine (e.g., Italian, Chinese, Indian)
+     - `description`: A brief description of the cuisine
+   - **Relationships**:
+     - A cuisine can be associated with multiple restaurants (One-to-Many relationship with the `Restaurant` entity)
+
+3. **Restaurant**
+   - **Attributes**:
+     - `id`: Unique identifier for the restaurant (Primary Key)
+     - `name`: The name of the restaurant
+     - `slug`: A unique slug for the restaurant URL
+     - `email`: The email address of the restaurant
+     - `address_line1`: The first line of the restaurant's address
+     - `address_line2`: The second line of the restaurant's address (optional)
+     - `city`: The city where the restaurant is located
+     - `postcode`: The postal code of the restaurant's location
+     - `restro_image`: An image of the restaurant
+     - `created_at`: The date and time when the restaurant was added
+     - `status`: The status of the restaurant (e.g., Draft, Published)
+   - **Relationships**:
+     - A restaurant belongs to one cuisine (Many-to-One relationship with the `Cuisine` entity)
+     - A restaurant can have multiple comments (One-to-Many relationship with the `Comment` entity)
+     - A restaurant is added by one user (Many-to-One relationship with the `User` entity)
+
+4. **Comment**
+   - **Attributes**:
+     - `id`: Unique identifier for the comment (Primary Key)
+     - `comment`: The text of the comment
+     - `is_approved`: A boolean indicating whether the comment is approved
+     - `created_at`: The date and time when the comment was created
+     - `rating`: The rating given by the user (optional)
+   - **Relationships**:
+     - A comment is written by one user (Many-to-One relationship with the `User` entity)
+     - A comment is associated with one restaurant (Many-to-One relationship with the `Restaurant` entity)
+
+### Relationships Summary
+- **User to Comment**: One-to-Many (A user can write multiple comments)
+- **Cuisine to Restaurant**: One-to-Many (A cuisine can be associated with multiple restaurants)
+- **Restaurant to Comment**: One-to-Many (A restaurant can have multiple comments)
+- **Restaurant to User**: Many-to-One (A restaurant is added by one user)
+- **Comment to User**: Many-to-One (A comment is written by one user)
+- **Comment to Restaurant**: Many-to-One (A comment is associated with one restaurant)
+
+### How to create a database
+
+1. Navigate to [PostgreSQL](https://dbs.ci-dbs.net/) from Code Institute.
+2. Enter your student email address in the input field provided.
+3. Click Submit.
+4. Wait while the database is created.
+5. Check your email.
+6. You now have a URL you can use to connect your app to your database.
+
 ## Deployment
-- **Platform:** [Platform used, e.g., Heroku, AWS, etc.]
-- **High-Level Deployment Steps:** 
-  1. [Step 1]
-  2. [Step 2]
-  3. [Step 3]
-- **Verification and Validation:**
-  - Steps taken to verify the deployed version matches the development version in functionality.
-  - [Include any additional checks to ensure accessibility of the deployed application.]
-- **Security Measures:**
-  - Use of environment variables for sensitive data.
-  - Ensured DEBUG mode is disabled in production.
+- The website was deployed to Heroku and can be found [here](https://nearestro-0ab3008aa139.herokuapp.com/)
 
-## AI Implementation and Orchestration
+### Heroku
+- Heroku is a cloud platform that lets developers create, deploy, monitor and manage apps.
+- You will need a Heroku log-in to be able to deploy a website to Heroku.
+- Once you have logged into Heroku:
 
-### Use Cases and Reflections:
-(Highlight how prompts, such as reverse, question-and-answer or multi-step, were used to support learners with SEND or ALN where relevant.)
+1. Click 'New' > 'Create new app'
+2. Choose a unique name, choose your region and press 'Create app'
+3. Click on 'Settings' and then 'Reveal Config Vars'
+4. Add a key of 'DISABLE_COLLECTSTATIC' with a value of '1'.
+5. Add a key of 'DATABASE_URL' - the value will be the URL you were emailed when creating your database.
+6. Add a key of 'SECRET_KEY' - the value will be any random secret key (google 'secret key generator' and use it to generate a random string of numbers, letters and characters)
+7. In your terminal, type the code you will need to install project requirements:
+    - pip3 install gunicorn~=20.1
+    - pip3 install -r requirements.txt
+    - pip3 freeze --local > requirements.txt
+8. Create an 'env.py' file at the root directory which contains the following:
+    - import os
+    - os.environ["DATABASE_URL"]='CI database URL'
+    - os.environ["SECRET_KEY"]=" Your secret key"
+9. Create a file at the root directory called Procfile. In this file enter: "web: gunicorn my_project.wsgi" (without the quotes)
+10. In settings.py, set DEBUG to False. 
+    - YOU SHOULD ALWAYS SET DEBUG TO FALSE BEFORE DEPLOYING FOR SECURITY
+11. Add ",'.herokuapp.com' " (without the double quotes) to the ALLOWED_HOSTS list in settings.py
+12. Add, commit and push your code.
+13. Go back to Heroku, click on the 'Deploy' tab.
+14. Connect your project to GitHub.
+15. Scroll to the bottom and click 'Deploy Branch' and your project will be deployed!
 
-  - **Code Creation:** 
-    - Reflection: Strategic use of AI allowed for rapid prototyping, with minor adjustments for alignment with project goals. 
-    - Examples: Reverse prompts for alternative code solutions and question-answer prompts for resolving specific challenges.
-  - **Debugging:** 
-    - Reflection: Key interventions included resolving logic errors and enhancing maintainability, with a focus on simplifying complex logic to make it accessible.
-  - **Performance and UX Optimization:** 
-    - Reflection: Minimal manual adjustments were needed to apply AI-driven improvements, which enhanced application speed and user experience for all users.
-  - **Automated Unit Testing: (If undertaken)**
-    - Reflection: Adjustments were made to improve test coverage and ensure alignment with functionality. Prompts were used to generate inclusive test cases that considered edge cases for accessibility.
+## Technologies used
 
-- **Overall Impact:**
-  - AI tools streamlined repetitive tasks, enabling focus on high-level development.
-  - Efficiency gains included faster debugging, comprehensive testing, and improved code quality.
-  - Challenges included contextual adjustments to AI-generated outputs, which were resolved effectively, enhancing inclusivity.
+- HTML was used to structure the content of the website.
+- CSS were used to design the layout of the website.
+- Bootstrap was used as a CSS framework to provide a grid structure and improve responsiveness.
+- Python and Django were used to build the backend review framework.
+- GitHub was used to host the repository and version control.
+- Heroku was the hosting platform.
 
 ## Testing Summary
 ## Testing
 - Please see [TESTING.md](TESTING.md) file for all testing.
 
-- **Manual Testing:**
-  - **Devices and Browsers Tested:** [List devices and browsers, ensuring testing was conducted with assistive technologies such as screen readers or keyboard-only navigation.]
-  - **Features Tested:** [Summarise features tested manually, e.g., CRUD operations, navigation.]
-  - **Results:** [Summarise testing results, e.g., "All critical features worked as expected, including accessibility checks."]
-- **Automated Testing: (If undertaken)**
-  - Tools Used: [Mention any testing frameworks or tools, e.g., Django TestCase.]
-  - Features Covered: [Briefly list features covered by automated tests.]
-  - Adjustments Made: [Describe any manual corrections to AI-generated test cases, particularly for accessibility.]
+
+## AI Assistance in Development
+During the development of NeaRestro, I used GitHub Copilot to assist in various parts of the process, enhancing both the speed and quality of the code:
+
+-**Code Suggestions**: Copilot provided efficient and error-free code snippets and functions. It also helped in organizing the CSS and cleaning up classes, making the codebase more maintainable.
+
+-**Debugging**: Encountering several bugs during development, Copilot quickly identified and resolved them. Its role in spotting and fixing errors significantly smoothed the development process.
+
+-**Documentation**: AI tools aided in creating detailed documentation by generating markdown templates and offering content ideas for the website.
+
+-**Design**: AI-based design tools suggested improvements for the UI/UX, resulting in a more polished and user-friendly application.
+
+-**Productivity**: Copilot increased productivity by automating repetitive tasks and providing smart code suggestions. This allowed me to focus on the core features and design of the app, enhancing its overall functionality.
+
+-**Reflection**: One of my proudest moments was refining the Bootstrap styling with Copilot's help. Initially lacking confidence in front-end design, AI suggested impactful changes like fixing button alignment and adjusting breakpoints. These improvements made the app look more professional and ensured full responsiveness, a key priority.
+
+-**Overall Impact**: Working with Copilot improved my workflow, allowing me to focus on the big picture while efficiently handling repetitive tasks. Although some suggestions required tweaking, this experience highlighted AI as a valuable tool rather than a replacement for my skills.
+
+This experience not only enhanced my technical skills but also improved my problem-solving abilities. It helped me articulate my ideas more clearly and increased my awareness of accessibility and inclusivity in software design. Most importantly, it demonstrated the value of new technologies as partners in the creative process.
 
 ## Future Enhancements
-- [List potential improvements or additional features for future development.]
-- Consider enhancements to improve accessibility further, such as voice input capabilities or additional language support.
+
+1. **Advanced Search Filters**: Implement advanced search filters to allow users to narrow down their search results based on additional criteria such as price range, distance, and dietary preferences (e.g., vegan, gluten-free).
+
+2. **Interactive Map**: Add an interactive map feature that displays restaurant locations and allows users to see nearby dining options. The map could include filters for cuisine type and user ratings.
+
+3. **User Profiles**: Enhance user profiles to include more detailed information, such as favorite restaurants, review history, and personalized recommendations based on past activity.
+
+4. **Social Media Integration**: Improve social media integration by allowing users to share their reviews and favorite restaurants directly to their social media accounts. This could help increase engagement and attract new users.
+
+5. **Multilingual Support**: Implement multilingual support to cater to a broader audience. This feature would allow users to view the platform in their preferred language.
+
+6. **AI-Powered Recommendations**: Utilize AI to provide personalized restaurant recommendations based on user preferences, past reviews, and dining history. This feature could enhance the user experience by offering tailored suggestions.
+
+7. **Enhanced Review System**: Improve the review system by allowing users to upload photos and videos with their reviews. This feature could provide more comprehensive insights into the dining experience.
+
+8. **Reservation System**: Integrate a reservation system that allows users to book tables directly through the platform. This feature could include real-time availability and confirmation notifications.
+
+By implementing these future enhancements, NeaRestro can continue to evolve and provide an even more valuable and engaging experience for its users.
+
+## Credits
+
+### Resources
+
+- **Colorhunt**: For generating the color palette used in the application.
+- **Am I Responsive**: For testing the responsiveness of the application across different devices.
+- **Google Fonts**: For providing the fonts used in the application.
+- **Logo Design**: Created using Logo Maker to reflect the essence of the application.
+- **dbdiagram.io**: For creating the Entity Relationship Diagram (ERD) used in database planning.
+- **Balsamiq**: For wireframe creation.
+- **Heroku**: For hosting the application.
+- **PostgreSQL**: For database management.
+- **Unsplash & Chatgpt**: For providing high-quality images used in the application
+- **Font Awesome**: For icons used throughout the site.
+
+
+### Inspiration
+
+- **Restaurant Review Websites**: Various restaurant review websites inspired the features and design of NeaRestro, aiming to create a user-friendly and engaging platform for food enthusiasts.
+- **Community Feedback**: Conversations with friends and family revealed a common frustration with the lack of reliable and comprehensive restaurant discovery tools. Their feedback reinforced the idea of creating a user-friendly platform that addresses these pain points.
+- **Technology Advancements**: The rapid advancements in web development and AI technologies provided the perfect opportunity to create a sophisticated platform that leverages these tools to enhance the user experience. GitHub Copilot, in particular, played a significant role in streamlining the development process and improving code quality.
+
+NeaRestro is the culmination of these inspirations, designed to make restaurant discovery a more enjoyable and efficient process for food lovers everywhere.
+
+### Tools
+
+- **Visual Studio Code**: For code editing and development.
+- **Git and GitHub**: For version control and repository management.
+
+
+## Acknowledgments
+
+- **Code Institute**: For providing the Full Stack Development Bootcamp course and resources that guided the development of this project.
+- **Mentors and Tutors**: Special thanks to my facilitator **Emma Lamont** and tutors **Spencer**, **Roo** and **John** for their invaluable guidance and support throughout the project.
+- **Family and Friends**: For their encouragement and feedback, which helped shape the final product.
+- **Open Source Community**: For the various libraries and frameworks that made this project possible, including Django, Bootstrap, PostgreSQL, w3schools, stackoverflow, 
+Very Academy on youtube.
+- **GitHub Copilot**: For assisting in code suggestions, debugging, and documentation, significantly enhancing productivity and code quality.
+- **Testers**: To everyone who tested the application and provided constructive feedback, helping to improve the overall user experience and functionality.
+
+
+
