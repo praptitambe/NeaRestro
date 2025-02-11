@@ -2,7 +2,9 @@
 
 ## Overview
 
-NeaRestro is a web application designed to help users discover restaurants in their city based on their preferred cuisine. The platform aims to provide a seamless and user-friendly experience for food enthusiasts looking to explore new dining options. 
+NeaRestro is a web application designed to help users discover restaurants in their city based on their preferred cuisine. 
+It is built with Django and styled using Bootstrap 5. It is my final project for 16 week's Full Stack Development for the AI Augmented Developer Bootcamp course at Code Institute. It offers a seamless user experience with full CRUD functionality, allowing users to effortlessly create, read, update and delete their comments. Additionally user can search restaurants by applying cuisine filter.
+The platform aims to provide a seamless and user-friendly experience for food enthusiasts looking to explore new dining options. 
 
 [Live View](https://nearestro-0ab3008aa139.herokuapp.com/)
 
