@@ -83,9 +83,9 @@
                             </p>
                             {% endif %}
                         {% if user.is_authenticated and comment.author == user %}
-                            <p class="card-text"> {{ "" }}</small></p>
+                            <p class="card-text"> {{ "" }}</p>
                             <button class="btn btn-light btn-edit" data-comment-id="{{ comment.id }}" data-comment-text="{{ comment.comment }}" data-comment-rating="{{ comment.rating }}">Edit</button>
-                            <button class="btn btn-light btn-delete" data-comment_id="{{ comment.id }}" comment_id="{{ comment.id }}">Delete</button>
+                            <button class="btn btn-light btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
                         {% endif %}
                     </div>
                 </div>
