@@ -202,7 +202,7 @@ NeaRestro is designed to provide a comprehensive and enjoyable experience for fo
 
 ### Admin panel Database
 
-The database for Yummy Tummy is designed to efficiently manage and store user data, recipes, comments, and ratings. It uses PostgreSQL, a powerful, open-source relational database system, which ensures data integrity and supports complex queries.
+The database for NeaRestro is designed to efficiently manage and store user data, recipes, comments, and ratings. It uses PostgreSQL, a powerful, open-source relational database system, which ensures data integrity and supports complex queries.
 
 ![Admin panel](static/images/readme/admin_databases.png)
 
