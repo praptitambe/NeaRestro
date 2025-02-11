@@ -1,7 +1,4 @@
-// const editButtons = document.getElementsByClassName("btn-edit");
-// const commentText = document.getElementById("id_comment");
 const commentForm = document.getElementById("commentForm");
-// const submitButton = document.getElementById("submitButton");
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
@@ -14,7 +11,6 @@ document.querySelectorAll('.btn-edit').forEach(button => {
         const commentTextarea = document.getElementById('id_comment');
         const ratingSelect = document.getElementById('id_rating');
         const submitButton = document.getElementById('submitButton');
-        
         commentTextarea.value = commentTextValue;
         ratingSelect.value = commentRating;
         submitButton.innerText = "Update";
