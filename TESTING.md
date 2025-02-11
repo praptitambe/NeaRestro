@@ -61,7 +61,7 @@ All files were edited according to the suggestions provided by the validator and
 All files were edited according to the suggestions provided by the validator and are now showing no errors.
 
 ##### admin.py
-![admin.py](static/images/readme/testing/python-validator-about-admin-forms.png) 
+![admin.py](static/images/readme/testing/python-validator-about-forms.png) 
 
 ##### apps.py
 ![apps.py](static/images/readme/testing/python-validator-about-apps.png)
