@@ -43,16 +43,17 @@
 All files were edited according to the suggestions provided by the validator and are now showing no errors.
 
 ##### asgi.py
-![admin.py](static/images/readme/testing/restro-asgi.png)
+![asgi.py](static/images/readme/testing/python-validator-restro-asgi.png)
 
 ##### urls.py
-![apps.py](static/images/readme/testing/restro-urls.png)
+![urls.py](static/images/readme/testing/python-validator-restro-urls.png)
 
 ##### wsgi.py
-![forms.py](static/images/readme/testing/restro-wsgi.png)
+![wsgi.py](static/images/readme/testing/python-validator-restro-wsgi.png)
 
 ##### settings.py
-![forms.py](static/images/readme/testing/restro-settings.png)
+![settings.py](static/images/readme/testing/python-validator-restro-settings.png)
+-Even though some lines were considered too long by PEP8 (highlighted), I decided that the readability of the code was better when left on the same line, since it was very close to the accepted limit. Even though error exists, the app still functions. 
 
 
 
@@ -63,47 +64,42 @@ All files were edited according to the suggestions provided by the validator and
 ![admin.py](static/images/readme/testing/python-validator-about-admin-forms.png) 
 
 ##### apps.py
-![apps.py](static/images/readme/testing/python-validatorabout-apps.png)
+![apps.py](static/images/readme/testing/python-validator-about-apps.png)
 
 ##### forms.py
-![forms.py](static/images/readme/testing/python-validatorabout-forms.png)
+![forms.py](static/images/readme/testing/python-validator-about-forms.png)
 
 ##### models.py
-![models.py](static/images/readme/testing/python-validatorabout-models.png)
+![models.py](static/images/readme/testing/python-validator-about-models.png)
 
 ##### urls.py
-![urls.py](static/images/readme/testing/python-validatorabout-urls.png)
+![urls.py](static/images/readme/testing/python-validator-about-urls.png)
 
 ##### views.py
-![views.py](static/images/readme/testing/python-validatorabout-views.png)
+![views.py](static/images/readme/testing/python-validator-about-views.png)
 
 #### "Review" app files
 All files were edited according to the suggestions provided by the validator and are now showing no errors.
 
 ##### admin.py
-![admin.py](static/images/readme/testing/recipe-admin.png)
+![admin.py](static/images/readme/testing/python-validator-review-admin.png)
 
 ##### apps.py
-![apps.py](static/images/readme/testing/recipe-apps.png)
+![apps.py](static/images/readme/testing/python-validator-review-apps.png)
 
 ##### forms.py
-![forms.py](static/images/readme/testing/recipe-forms.png)
+![forms.py](static/images/readme/testing/python-validator-review-forms.png)
 
 ##### models.py
-![models.py](static/images/readme/testing/recipe-models.png)
+![models.py](static/images/readme/testing/python-validator-review-models.png)
 
 ##### urls.py
-![urls.py](static/images/readme/testing/recipe-urls.png)
+![urls.py](static/images/readme/testing/python-validator-review-urls.png)
 
 ##### views.py
-![views.py](static/images/readme/testing/recipe-views.png)
+![views.py](static/images/readme/testing/python-validator-review-views.png)
 
-#### Settings.py
-![settings.py](static/images/readme/testing/settings.png)
--Even though some lines were considered too long by PEP8 (highlighted), I decided that the readability of the code was better when left on the same line, since it was very close to the accepted limit. Even though error exists, the app still functions. 
 
-#### Project urls
-![project urls.py](static/images/readme/testing/project-urls.png)
 
 ## Lighthouse
 
@@ -112,33 +108,9 @@ All files were edited according to the suggestions provided by the validator and
 ### Desktop Lighthouse
 
 #### Home page
-![home page](static/images/readme/testing/lighthouse-desktop-home.png)
-
-#### Chef page
-![chef page](static/images/readme/testing/lighthouse-desktop-chef.png)
-
-#### Detail page
-![detail page](static/images/readme/testing/lighthouse-desktop-detail.png)
-
-#### Join us page
-![join us page](static/images/readme/testing/lighthouse-desktop-joinus.png)
-
-#### Register
-![register page](static/images/readme/testing/lighthouse-desktop-register.png)
-
-#### Sign-in page
-![sign-in page](static/images/readme/testing/lighthouse-desktop-signin.png)
+![home page](static/images/readme/testing/desktop_lighthouse_testing.png)
 
 ### Mobile Lighthouse
 
 #### Home page
-![home page](static/images/readme/testing/lighthouse-mobile-home.png)
-
-#### Chef page
-![chef page](static/images/readme/testing/lighthouse-mobile-chef.png)
-
-#### Detail page
-![detail page](static/images/readme/testing/lighthouse-mobile-detail.png)
-
-#### Join us page
-![join us page](static/images/readme/testing/lighthouse-mobile-joinus.png)
+![home page](static/images/readme/testing/desktop_lighthouse_testing.png)
