@@ -377,7 +377,7 @@ By implementing these future enhancements, NeaRestro can continue to evolve and 
 - **PostgreSQL**: For database management.
 - **Unsplash & Chatgpt**: For providing high-quality images used in the application
 - **Font Awesome**: For icons used throughout the site.
-
+- **Code Institute**: For code refernce from django walkthrough project.
 
 ### Inspiration
 
